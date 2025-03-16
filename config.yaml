@@ -24,3 +24,35 @@ agents:
     cache: true
     max_tokens: 2500
     temperature: 0.4
+
+  drug_design:
+    model_provider: claude
+    model: claude-3-7-sonnet-latest
+    prompt_version: v1
+    cache: true
+    max_tokens: 2500
+    temperature: 0.5
+
+  crispr_design:
+    model_provider: claude
+    model: claude-3-7-sonnet-latest
+    prompt_version: v1
+    cache: true
+    max_tokens: 2500
+    temperature: 0.4
+
+  delivery_optimization:
+    model_provider: claude
+    model: claude-3-7-sonnet-latest
+    prompt_version: v1
+    cache: true
+    max_tokens: 2500
+    temperature: 0.4
+
+  report_generator:
+    model_provider: claude
+    model: claude-3-7-sonnet-latest
+    prompt_version: default
+    cache: false
+    max_tokens: 1000
+    temperature: 0.0

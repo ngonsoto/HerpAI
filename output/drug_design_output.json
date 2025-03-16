@@ -1,0 +1,8 @@
+{
+  "Top Drug Candidates": [
+    "Pritelivir (BAY 57-1293)",
+    "Amenamevir (ASP2151)",
+    "FD-CDI-4"
+  ],
+  "Rationale": "Pritelivir and Amenamevir target the helicase-primase complex through a non-nucleoside mechanism, occupying a hydrophobic pocket at the interface of UL5/UL52 subunits, blocking ATP hydrolysis essential for viral DNA unwinding. These compounds show high selectivity, potent antiviral activity (EC50 <50nM), and favorable resistance profiles compared to nucleoside analogs. FD-CDI-4, a carboxamide derivative, disrupts interactions between glycoprotein D and its cellular receptors, preventing viral entry with activity against resistant strains."
+}

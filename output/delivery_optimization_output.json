@@ -1,0 +1,15 @@
+{
+  "Recommended Delivery Strategy": {
+    "Vector": "AAV2/8 with HSV-2 glycoprotein modifications",
+    "Promoter": "Neurotropic hCMV/UL27 chimeric promoter",
+    "Route": "Combined intradermal and intravaginal/perianal administration",
+    "Supplementation": [
+      "Cationic LNPs for immediate effect",
+      "PEGylation of vector capsid",
+      "Transcriptional targeting with LAT region enhancer"
+    ]
+  },
+  "Estimated Delivery Efficiency": "~65-70%",
+  "Expression Duration": "8-12 weeks for AAV component; 5-7 days for LNP component",
+  "Additional Notes": "Strategy targets both latently infected neurons in dorsal root ganglia and active replication in epithelial tissues. The dual delivery approach provides immediate knockdown via LNPs while establishing longer-term expression via AAV. Tissue-specific promoters minimize off-target effects. Consider cyclophosphamide pre-treatment to reduce neutralizing antibodies in previously exposed patients."
+}

@@ -15,7 +15,7 @@ venv
 .idea/
 
 # Output and build files
-output/
+#output/
 *.log
 *.tmp
 *.bak

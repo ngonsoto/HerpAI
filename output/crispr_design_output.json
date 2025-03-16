@@ -1,0 +1,35 @@
+{
+  "Target Genes": [
+    "ICP0",
+    "ICP4",
+    "UL30",
+    "LAT"
+  ],
+  "Recommended gRNAs": [
+    {
+      "sequence": "GAACACGACCCGGAAGTCCA",
+      "target_gene": "ICP0",
+      "system": "SpCas9",
+      "off_target_risk": "Low"
+    },
+    {
+      "sequence": "GCCAGACCGACTCGTCCTAC",
+      "target_gene": "ICP4",
+      "system": "SpCas9",
+      "off_target_risk": "Low"
+    },
+    {
+      "sequence": "GTACAACATCACCGACCTGT",
+      "target_gene": "UL30",
+      "system": "SpCas9",
+      "off_target_risk": "Low"
+    },
+    {
+      "sequence": "TTCGCCTGTGGTGTTTTGCG",
+      "target_gene": "LAT",
+      "system": "SpCas9",
+      "off_target_risk": "Moderate"
+    }
+  ],
+  "Rationale": "Selected genes target critical HSV-2 functions: ICP0 (immediate-early gene for viral reactivation), ICP4 (key transcriptional regulator), UL30 (DNA polymerase essential for replication), and LAT (latency-associated transcript). All gRNAs were designed with NGG PAM sites for SpCas9, the most established CRISPR system with well-characterized delivery options including AAV vectors, nanoparticles, or ex vivo cell modification. gRNAs were selected for optimal GC content (50-60%), minimal self-complementarity, and filtered through computational analysis to minimize homology with human genome sequences. The LAT-targeting gRNA has moderate off-target risk due to repetitive elements in the LAT region, but offers strategic advantage for targeting viral latency."
+}

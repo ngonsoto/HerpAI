@@ -4,6 +4,7 @@ from agents.target_prioritization_agent import TargetPrioritizationAgent
 from agents.drug_design_agent import DrugDesignAgent
 from agents.crispr_design_agent import CRISPRDesignAgent
 from agents.delivery_optimization_agent import DeliveryOptimizationAgent
+from agents.report_generator_agent import ReportGeneratorAgent
 
 
 class PipelineManager:
@@ -12,35 +13,23 @@ class PipelineManager:
         self.context = {}
 
     def run_pipeline(self):
-        print("[Pipeline] Running Virology Agent...")
-        virology_agent = VirologyAgent(variables={"virus_type": self.virus_type})
-        virology_agent.run()
-        self.context["virology"] = virology_agent.get_json()
+        agent_steps = [
+            ("virology", VirologyAgent, {"variables": {"virus_type": self.virus_type}}),
+            ("transmission_prevention", TransmissionPreventionAgent, {"context_key": "virology"}),
+            ("target_prioritization", TargetPrioritizationAgent, {"context_key": "virology", "variables": {"virus_type": self.virus_type}}),
+            ("drug_design", DrugDesignAgent, {"context_key": "target_prioritization", "variables": {"virus_type": self.virus_type}}),
+            ("crispr_design", CRISPRDesignAgent, {"context_key": "virology", "variables": {"virus_type": self.virus_type}}),
+            ("delivery_optimization", DeliveryOptimizationAgent, {"context_key": "crispr_design", "variables": {"virus_type": self.virus_type}}),
+            ("report", ReportGeneratorAgent, {"context_key": None, "variables": {"virus_type": self.virus_type}})
+        ]
 
-        print("[Pipeline] Running Transmission Prevention Agent...")
-        transmission_agent = TransmissionPreventionAgent(context=self.context["virology"], variables={})
-        transmission_agent.run()
-        self.context["transmission_prevention"] = transmission_agent.get_json()
-
-        print("[Pipeline] Running Target Prioritization Agent...")
-        target_agent = TargetPrioritizationAgent(context=self.context["virology"], variables={"virus_type": self.virus_type})
-        target_agent.run()
-        self.context["target_prioritization"] = target_agent.get_json()
-
-        print("[Pipeline] Running Drug Design Agent...")
-        drug_agent = DrugDesignAgent(context=self.context["target_prioritization"], variables={"virus_type": self.virus_type})
-        drug_agent.run()
-        self.context["drug_design"] = drug_agent.get_json()
-
-        print("[Pipeline] Running CRISPR Design Agent...")
-        crispr_agent = CRISPRDesignAgent(context=self.context["virology"], variables={"virus_type": self.virus_type})
-        crispr_agent.run()
-        self.context["crispr_design"] = crispr_agent.get_json()
-
-        print("[Pipeline] Running Delivery Optimization Agent...")
-        delivery_agent = DeliveryOptimizationAgent(context=self.context["crispr_design"], variables={"virus_type": self.virus_type})
-        delivery_agent.run()
-        self.context["delivery_optimization"] = delivery_agent.get_json()
+        for name, agent_cls, params in agent_steps:
+            print(f"[Pipeline] Running {name.replace('_', ' ').title()} Agent...")
+            context = self.context.get(params.get("context_key")) if params.get("context_key") else self.context
+            variables = params.get("variables", {})
+            agent = agent_cls(context=context, variables=variables)
+            agent.run()
+            self.context[name] = agent.get_json()
 
         return self.context
 

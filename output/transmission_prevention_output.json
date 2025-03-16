@@ -1,0 +1,47 @@
+{
+  "Transmission Reduction Strategies": [
+    "Nucleoside analog antivirals (e.g., acyclovir, valacyclovir, famciclovir)",
+    "Barrier methods (condoms, dental dams)",
+    "Topical microbicides with antiviral properties",
+    "RNA interference targeting viral genes",
+    "Prophylactic vaccines (where available)",
+    "UV-C disinfection of environmental surfaces",
+    "Immunomodulatory therapies to enhance innate immunity",
+    "Contact precautions and isolation during active outbreaks",
+    "Helicase-primase inhibitors",
+    "Viral DNA polymerase inhibitors"
+  ],
+  "Reactivation Suppression Methods": [
+    "Stress management techniques (meditation, cognitive behavioral therapy)",
+    "Suppressive antiviral therapy targeting viral DNA synthesis",
+    "ICP0 inhibitors to maintain latency",
+    "JAK/STAT pathway modulators to limit neuroinflammation",
+    "Corticosteroid avoidance during active infection periods",
+    "Mindfulness-based stress reduction programs",
+    "mTOR inhibitors to regulate reactivation pathways",
+    "Epigenetic modulators targeting LAT promoter regions",
+    "TLR antagonists to reduce inflammatory triggers",
+    "US3 kinase inhibitors to maintain latent state"
+  ],
+  "Pharmacological Interventions": [
+    "Long-acting antiviral formulations for sustained release",
+    "Combination therapies targeting multiple viral proteins",
+    "Lipid nanoparticle-delivered siRNA targeting essential viral genes",
+    "CRISPR-Cas systems targeting viral genome integration sites",
+    "Toll-like receptor agonists to enhance mucosal immunity",
+    "HSV-entry inhibitor peptides targeting glycoprotein D",
+    "HDAC inhibitors to maintain heterochromatin at viral promoters",
+    "Topical immune response modulators"
+  ],
+  "Delivery Approaches": [
+    "Mucoadhesive polymers for topical antiviral delivery",
+    "Controlled-release implants for continuous prophylaxis",
+    "Mobile health applications for medication adherence",
+    "Cyclodextrin-based formulations for improved bioavailability",
+    "Virus-like particles for vaccine delivery",
+    "Smartphone-integrated medication reminders",
+    "Transdermal delivery systems for systemic antivirals",
+    "Liposomal formulations for enhanced tissue penetration"
+  ],
+  "Novel Hypotheses": "Development of synthetic peptides that mimic the binding domains of ICP0, preventing its interaction with nuclear structures required for reactivation. These peptides could be delivered via nasal spray or topical application timed with known trigger events. Additionally, development of epigenetic modifiers specifically targeting LAT promoter regions to enforce heterochromatin formation, potentially using CRISPR-dCas9 fused to repressive chromatin modifiers delivered via engineered viral vectors with neuronal tropism."
+}
