@@ -2,14 +2,15 @@
 
 The HerpAI roadmap outlines major development milestones, agent expansion plans, and areas open for collaboration.
 
-### 🔖 Milestones Overview
+### 🔖 Visionary Milestones
 
-- ✅ Claude Sonnet 3.7 integration
-- ✅ VirologyAgent scaffold
-- ✅ Centralized configuration via config.yaml
-- ✅ ModelRouter abstraction for multi-model support
-- ✅ Secure secret handling via .env
-- ✅ Makefile for streamlined execution
+- 🌐 Establish HerpAI as an open, modular platform for AI-driven drug discovery
+- 🧠 Demonstrate multi-agent collaboration for molecular target identification and treatment design
+- 📊 Enable transparent, reproducible scientific discovery via open-source LLM pipelines
+- 🧬 Bridge AI-generated insights with wet-lab testing through standardized report outputs
+- 🔎 Foster global collaboration between AI engineers, researchers, and molecular biologists
+- 📄 Publish and maintain an open whitepaper and research framework on HSV cure discovery
+- 🚀 Set the foundation for expanding HerpAI into broader bio-cure discovery beyond HSV
 
 ### 📌 Upcoming Features, Stories, and Tasks
 
