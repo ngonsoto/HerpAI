@@ -1,0 +1,11 @@
+agents/.gitkeep \
+      api/.gitkeep \
+      docs/.gitkeep \
+      knowledge_base/.gitkeep \
+      molecule_generation/.gitkeep \
+      orchestrator/.gitkeep \
+      output/.gitkeep \
+      prompts/.gitkeep \
+      simulation/.gitkeep \
+      tests/.gitkeep \
+      ui/.gitkeep
