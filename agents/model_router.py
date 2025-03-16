@@ -1,25 +1,24 @@
-# model_router.py
-
 import os  # For accessing environment variables
 import requests  # To make HTTP requests to Claude's API
-# You can also import openai here if GPT-4 will be supported
+import json
+import hashlib
+from src.config_loader import Config  # Adjust the import path based on your actual structure
 
 class ModelRouter:
     """
-    This class is responsible for selecting the appropriate language model (Claude, GPT, etc.)
-    and routing the prompt to the correct API.
+    This class selects the appropriate language model based on the configuration.
     """
 
     def __init__(self, agent_name="default"):
         """
-        Initialize the ModelRouter with a specific agent name.
-        It determines which model provider (claude/openai) and model to use based on environment variables.
+        Initialize the ModelRouter with a specific agent name, loading settings from AppConfig.
         """
         self.agent_name = agent_name
-        # Determine the model provider for this agent (e.g., 'claude' or 'openai')
-        self.provider = os.getenv(f"{agent_name.upper()}_MODEL_PROVIDER", os.getenv("DEFAULT_MODEL_PROVIDER", "claude"))
-        # Get the model name/version to use (e.g., 'claude-sonnet-3.7' or 'gpt-4')
-        self.model = os.getenv(f"{agent_name.upper()}_MODEL", "claude-sonnet-3.7")
+        self.config = Config.load()
+
+        agent_config = self.config["agents"].get(agent_name, {})
+        self.provider = agent_config.get("model_provider", self.config.get("default_model_provider", "claude"))
+        self.model = agent_config.get("model", "claude-3-7-sonnet-latest")
 
     def query(self, prompt):
         """
@@ -35,49 +34,52 @@ class ModelRouter:
 
     def _query_claude(self, prompt):
         """
-        Send a request to Claude (Anthropic) API with the user prompt.
-        Returns the response content or an error message.
+        Send a request to Claude (Anthropic) API with conditional caching capability.
         """
-        # Set the headers required by Claude API
+
+        # Load cache setting from config
+        agent_config = self.config["agents"].get(self.agent_name, {})
+        should_cache = agent_config.get("cache", False)
+
+        prompt_hash = hashlib.sha256(prompt.encode()).hexdigest()
+        cache_dir = os.path.join("output", self.agent_name)
+        os.makedirs(cache_dir, exist_ok=True)
+        cache_filepath = os.path.join(cache_dir, f"{prompt_hash}.json")
+
+        # If caching enabled, check for existing cached response
+        if should_cache and os.path.exists(cache_filepath):
+            with open(cache_filepath, "r") as f:
+                cached_response = json.load(f)
+                return cached_response["response"]
+
         headers = {
-            "x-api-key": os.getenv("SONNET_API_KEY"),  # Your Claude API key
-            "anthropic-version": "2023-06-01",         # API version
+            "x-api-key": os.getenv("SONNET_API_KEY"),
+            "anthropic-version": "2023-06-01",
             "content-type": "application/json"
         }
 
-        # Set the body (payload) of the API request
         payload = {
             "model": self.model,
-            "max_tokens": 1000,  # Maximum number of tokens in the response
-            "messages": [
-                {"role": "user", "content": prompt}
-            ]
+            "max_tokens": self.config["agents"].get(self.agent_name, {}).get("max_tokens", 1000),
+            "messages": [{"role": "user", "content": prompt}]
         }
 
-        # Send POST request to Claude API
-        response = requests.post("https://api.anthropic.com/v1/messages", json=payload, headers=headers)
+        response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=payload)
 
-        # Check if the request was successful
         if response.status_code == 200:
-            return response.json().get("content", "[No Claude response content]")
+            response_content = response.json()["content"][0]["text"]
+
+            # Cache the response only if enabled in config
+            if should_cache:
+                with open(cache_filepath, "w") as f:
+                    json.dump({"response": response_content}, f, indent=2)
+
+            return response_content
+
         return f"[Claude API Error {response.status_code}] {response.text}"
 
     def _query_openai(self, prompt):
         """
-        Send a request to OpenAI's API with the user prompt.
-        Returns the response content or an error message.
+        OpenAI query is not yet implemented.
         """
-        import openai  # Import OpenAI SDK
-        openai.api_key = os.getenv("OPENAI_API_KEY")  # Set your OpenAI key
-
-        # Send request to OpenAI's chat model
-        response = openai.ChatCompletion.create(
-            model=self.model,
-            messages=[
-                {"role": "system", "content": "You are a helpful biomedical research assistant."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.5  # Controls randomness in the response
-        )
-
-        return response["choices"][0]["message"]["content"]
+        raise NotImplementedError("OpenAI query is not implemented yet.")

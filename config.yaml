@@ -1,28 +1,23 @@
-# config.yaml
-# Central configuration file for HerpAI agents and system settings
-
 default_model_provider: claude
 
 agents:
   virology:
     model_provider: claude
-    model: claude-sonnet-3.7
+    model: claude-3-7-sonnet-latest
+    prompt_version: v1
+    cache: true
+    max_tokens: 2500
+    temperature: 0.4
   drug_design:
-    model_provider: gpt
-    model: gpt-4
+    model_provider: claude
+    model: claude-3-7-sonnet-latest
+    prompt_version: v1
   crispr:
     model_provider: claude
-    model: claude-sonnet-3.7
+    model: claude-3-7-sonnet-latest
   target_prioritization:
     model_provider: claude
-    model: claude-sonnet-3.7
+    model: claude-3-7-sonnet-latest
   delivery:
     model_provider: claude
-    model: claude-sonnet-3.7
-
-simulation:
-  max_tokens: 1000
-  temperature: 0.4
-
-logging:
-  level: INFO
+    model: claude-3-7-sonnet-latest
