@@ -105,6 +105,17 @@ You should see output from the active agent execution printed to your terminal.
 
 ---
 
+## 🧠 AI Agent Modules Overview
+| Agent Name              | Description                                                                 | Status        |
+|------------------------|-----------------------------------------------------------------------------|---------------|
+| VirologyAgent          | Extracts HSV-2 latency, replication, reactivation genes, and regulatory data from LLMs | ✅ Implemented |
+| TargetPrioritizationAgent | Prioritizes genes/proteins for therapeutic targeting based on impact score         | ⏳ Planned     |
+| DrugDesignAgent        | Generates novel compound suggestions using AI-driven molecular synthesis     | ⏳ Planned     |
+| CRISPRDesignAgent      | Designs CRISPR guide RNAs targeting key latency/reactivation genes           | ⏳ Planned     |
+| DeliveryOptimizationAgent | Suggests delivery mechanisms for CRISPR or drugs (e.g., AAV, LNP, microfluidics) | ⏳ Planned     |
+| ReportGeneratorAgent   | Creates structured biomedical reports from agent outputs                      | ⏳ Planned     |
+
+
 ## 📄 License
 
 HerpAI is released under the **MIT License** — feel free to use, extend, or remix it for scientific and research purposes.
