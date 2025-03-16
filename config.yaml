@@ -21,3 +21,10 @@ agents:
   delivery:
     model_provider: claude
     model: claude-3-7-sonnet-latest
+  transmission_prevention:
+    model_provider: claude
+    model: claude-3-7-sonnet-latest
+    prompt_version: v1
+    cache: true
+    max_tokens: 2000
+    temperature: 0.3

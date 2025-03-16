@@ -1,21 +1,28 @@
 from agents.virology_agent import VirologyAgent
+from agents.transmission_prevention_agent import TransmissionPreventionAgent
 from src.utils import extract_json_from_markdown
+from src.config_loader import AppConfig
 
 def main():
+    try:
+        config = AppConfig.load()
 
-    agent = VirologyAgent()
-    print(f"Running {agent.name}...\n")
+        print("\n[Step 1] Running Virology Agent...")
+        virology_agent = VirologyAgent(variables={"virus_type": "HSV-2"})
+        virology_agent.run()
+        virology_output = virology_agent.get_json()
 
-    # Get the analysis results for HSV-2
-    raw_response = agent.analyze_latency_and_reactivation(virus_type="HSV-2")
-    results = extract_json_from_markdown(raw_response)
+        print("\n[Step 2] Running Transmission Prevention Agent with Virology context...")
+        transmission_agent = TransmissionPreventionAgent(context=virology_output, variables={})
+        transmission_agent.run()
+        transmission_output = transmission_agent.get_json()
 
-    # Assuming results is a dictionary with structured data
-    print("Key Targets Identified:")
-    print("- Latency Genes:", results.get('Latency Genes', 'No data available'))
-    print("- Replication Genes:", results.get('Replication Genes', 'No data available'))
-    print("- Reactivation Triggers:", results.get('Reactivation Triggers', 'No data available'))
-    print("- Gene Regulation:", results.get('Gene Regulation', 'No data available'))
+        print("\n=== Final Output ===")
+        print("Virology Output:", virology_output)
+        print("Transmission Prevention Output:", transmission_output)
 
-if __name__ == "__main__":
+    except Exception as e:
+        print(f"[ERROR] Execution failed: {e}")
+
+if __name__ == "__main__": 
     main()

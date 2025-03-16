@@ -114,7 +114,26 @@ You should see output from the active agent execution printed to your terminal.
 | CRISPRDesignAgent      | Designs CRISPR guide RNAs targeting key latency/reactivation genes           | ⏳ Planned     |
 | DeliveryOptimizationAgent | Suggests delivery mechanisms for CRISPR or drugs (e.g., AAV, LNP, microfluidics) | ⏳ Planned     |
 | ReportGeneratorAgent   | Creates structured biomedical reports from agent outputs                      | ⏳ Planned     |
+| TransmissionPreventionAgent | Identifies non-invasive strategies to reduce outbreaks and transmission risk | ✅ Implemented |
 
+
+## 🧠 Agent Execution Flow
+
+HerpAI is designed to support modular and flexible chaining of AI agents. Below is the current planned **Branch + Merge flow** architecture:
+
+```
+VirologyAgent
+   ↘                              ↘
+TargetPrioritizationAgent      TransmissionPreventionAgent
+   ↘                              ↘
+DrugDesignAgent           ←   Merge Insights →
+       ↓
+DeliveryOptimizationAgent
+       ↓
+ReportGeneratorAgent
+```
+
+This structure enables parallel exploration of both **cure-focused** and **prevention-focused** strategies before converging into delivery simulations and final biomedical report generation.
 
 ## 📄 License
 

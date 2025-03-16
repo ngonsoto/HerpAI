@@ -42,7 +42,7 @@ class ModelRouter:
         should_cache = agent_config.cache
 
         prompt_hash = hashlib.sha256(prompt.encode()).hexdigest()
-        cache_dir = os.path.join("output", self.agent_name)
+        cache_dir = os.path.join("cache", self.agent_name)
         os.makedirs(cache_dir, exist_ok=True)
         cache_filepath = os.path.join(cache_dir, f"{prompt_hash}.json")
 
