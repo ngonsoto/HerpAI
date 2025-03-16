@@ -1,6 +1,11 @@
-# Load environment variables from .env file
-include .env
-export $(shell sed 's/=.*//' .env)
+.PHONY: init run test
+
+init:
+	python3 -m venv venv
+	. venv/bin/activate && pip install -r requirements.txt
 
 run:
-	PYTHONPATH=. python3 orchestrator/runner.py
+	set -a && . .env && set -a && PYTHONPATH=. python3 orchestrator/runner.py
+
+test:
+	PYTHONPATH=. python3 -m unittest discover tests

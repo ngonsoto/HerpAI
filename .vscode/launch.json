@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run HerpAI VirologyAgent",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/orchestrator/runner.py",
+        "console": "integratedTerminal",
+        "envFile": "${workspaceFolder}/.env",
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        }
+      }
+    ]
+  }

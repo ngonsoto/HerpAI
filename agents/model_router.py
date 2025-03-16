@@ -2,7 +2,7 @@ import os  # For accessing environment variables
 import requests  # To make HTTP requests to Claude's API
 import json
 import hashlib
-from src.config_loader import Config  # Adjust the import path based on your actual structure
+from src.config_loader import AppConfig, AgentConfig  # Adjust the import path based on your actual structure
 
 class ModelRouter:
     """
@@ -14,11 +14,11 @@ class ModelRouter:
         Initialize the ModelRouter with a specific agent name, loading settings from AppConfig.
         """
         self.agent_name = agent_name
-        self.config = Config.load()
+        self.config = AppConfig.load()
 
-        agent_config = self.config["agents"].get(agent_name, {})
-        self.provider = agent_config.get("model_provider", self.config.get("default_model_provider", "claude"))
-        self.model = agent_config.get("model", "claude-3-7-sonnet-latest")
+        agent_config = self.config.agents.get(agent_name, {})
+        self.provider = agent_config.model_provider or self.config.default_model_provider
+        self.model = agent_config.model or "claude-3-7-sonnet-latest"
 
     def query(self, prompt):
         """
@@ -38,8 +38,8 @@ class ModelRouter:
         """
 
         # Load cache setting from config
-        agent_config = self.config["agents"].get(self.agent_name, {})
-        should_cache = agent_config.get("cache", False)
+        agent_config = self.config.agents.get(self.agent_name, AgentConfig(model_provider=self.config.default_model_provider, model="default-model"))
+        should_cache = agent_config.cache
 
         prompt_hash = hashlib.sha256(prompt.encode()).hexdigest()
         cache_dir = os.path.join("output", self.agent_name)
@@ -60,7 +60,7 @@ class ModelRouter:
 
         payload = {
             "model": self.model,
-            "max_tokens": self.config["agents"].get(self.agent_name, {}).get("max_tokens", 1000),
+            "max_tokens": self.config.agents.get(self.agent_name, AgentConfig(model_provider=self.config.default_model_provider, model="default-model")).max_tokens,
             "messages": [{"role": "user", "content": prompt}]
         }
 

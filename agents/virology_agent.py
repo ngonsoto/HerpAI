@@ -1,6 +1,6 @@
 from agents.model_router import ModelRouter
 import os
-from src.config_loader import AgentConfig, AppConfig, Config
+from src.config_loader import AgentConfig, AppConfig
 
 class VirologyAgent:
     """
@@ -11,8 +11,9 @@ class VirologyAgent:
     def __init__(self):
         cfg = AppConfig.load()
         self.agent_cfg: AgentConfig = cfg.agents["virology"]
-        self.llm = ModelRouter(agent_name="virology", config=self.agent_cfg)
-        self.prompt_version = self.agent_config.prompt_version
+        self.llm = ModelRouter(agent_name="virology")
+        self.prompt_version = self.agent_cfg.prompt_version
+        self.name = "Virology Agent"
 
     def analyze_latency_and_reactivation(self, virus_type="HSV-2"):
         """
