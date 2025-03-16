@@ -69,6 +69,13 @@ HerpAI is released under the **MIT License** — feel free to use, extend, or re
 
 ---
 
+## 📚 Additional Resources
+
+- 📄 [Whitepaper Outline](docs/whitepaper-outline.md) – Full structure of the HerpAI scientific paper detailing system architecture, methodology, and discovery flows.
+- 📜 [Code of Conduct](CODE_OF_CONDUCT.md) – Guidelines for respectful, inclusive, and collaborative contribution.
+- 🤝 [Contributing Guide](CONTRIBUTING.md) – Instructions for getting started, contributing code, or collaborating with the project.
+---
+
 ## 📬 Contact
 
 **Email:** openbiocure@gmail.com  
