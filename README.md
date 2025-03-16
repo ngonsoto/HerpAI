@@ -106,16 +106,15 @@ You should see output from the active agent execution printed to your terminal.
 ---
 
 ## 🧠 AI Agent Modules Overview
-| Agent Name              | Description                                                                 | Status        |
-|------------------------|-----------------------------------------------------------------------------|---------------|
-| VirologyAgent          | Extracts HSV-2 latency, replication, reactivation genes, and regulatory data from LLMs | ✅ Implemented |
-| TargetPrioritizationAgent | Prioritizes genes/proteins for therapeutic targeting based on impact score         | ⏳ Planned     |
-| DrugDesignAgent        | Generates novel compound suggestions using AI-driven molecular synthesis     | ⏳ Planned     |
-| CRISPRDesignAgent      | Designs CRISPR guide RNAs targeting key latency/reactivation genes           | ⏳ Planned     |
-| DeliveryOptimizationAgent | Suggests delivery mechanisms for CRISPR or drugs (e.g., AAV, LNP, microfluidics) | ⏳ Planned     |
-| ReportGeneratorAgent   | Creates structured biomedical reports from agent outputs                      | ⏳ Planned     |
-| TransmissionPreventionAgent | Identifies non-invasive strategies to reduce outbreaks and transmission risk | ✅ Implemented |
-
+| Agent Name                   | Description                                                                 | Status        |
+|-----------------------------|-----------------------------------------------------------------------------|---------------|
+| VirologyAgent               | Extracts HSV-2 latency, replication, reactivation genes, and regulatory data from LLMs | ✅ Implemented |
+| TargetPrioritizationAgent  | Prioritizes genes/proteins for therapeutic targeting based on impact score         | ✅ Implemented |
+| DrugDesignAgent             | Generates novel compound suggestions using AI-driven molecular synthesis     | ✅ Implemented |
+| CRISPRDesignAgent           | Designs CRISPR guide RNAs targeting key latency/reactivation genes           | ✅ Implemented |
+| DeliveryOptimizationAgent  | Suggests delivery mechanisms for CRISPR or drugs (e.g., AAV, LNP, microfluidics) | ✅ Implemented |
+| ReportGeneratorAgent        | Creates structured biomedical reports from agent outputs                      | ⏳ Planned     |
+| TransmissionPreventionAgent| Identifies non-invasive strategies to reduce outbreaks and transmission risk | ✅ Implemented |
 
 ## 🧠 Agent Execution Flow
 
@@ -125,15 +124,25 @@ HerpAI is designed to support modular and flexible chaining of AI agents. Below 
 VirologyAgent
    ↘                              ↘
 TargetPrioritizationAgent      TransmissionPreventionAgent
-   ↘                              ↘
-DrugDesignAgent           ←   Merge Insights →
-       ↓
+   ↘                                   ↘
+DrugDesignAgent                   ← Merge Insights →
+   ↓
+CRISPRDesignAgent
+   ↓
 DeliveryOptimizationAgent
-       ↓
+   ↓
 ReportGeneratorAgent
 ```
 
 This structure enables parallel exploration of both **cure-focused** and **prevention-focused** strategies before converging into delivery simulations and final biomedical report generation.
+
+## 📂 Export & Reporting
+
+After executing all agents through the Pipeline Manager, HerpAI automatically exports agent outputs to structured JSON files under the `/output` directory.
+
+Planned enhancements include:
+- Markdown/PDF biomedical report compilation
+- Scientific charts and agent summary visualization
 
 ## 📄 License
 
