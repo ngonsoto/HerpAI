@@ -81,18 +81,18 @@ OPENAI_API_KEY=your-openai-api-key-here
 ```bash
 make run
 ```
+
 This will:
 - Execute all AI agents in sequence
 - Export individual agent outputs to `/output`
 - Generate a compiled Markdown report at `/output/final_report.md`
-```
+
 
 You should see output from the active agent execution printed to your terminal.
 
 ---
 
 ## 📁 Repository Structure
-
       .
       ├── agents/                # Modular AI agents
       ├── prompts/               # Prompt templates
@@ -110,16 +110,18 @@ You should see output from the active agent execution printed to your terminal.
 
 ---
 
+
 ## 🧠 AI Agent Modules Overview
-| Agent Name                   | Description                                                                 | Status        |
-|-----------------------------|-----------------------------------------------------------------------------|---------------|
-| VirologyAgent               | Extracts HSV-2 latency, replication, reactivation genes, and regulatory data from LLMs | ✅ Implemented |
-| TargetPrioritizationAgent  | Prioritizes genes/proteins for therapeutic targeting based on impact score         | ✅ Implemented |
-| DrugDesignAgent             | Generates novel compound suggestions using AI-driven molecular synthesis     | ✅ Implemented |
-| CRISPRDesignAgent           | Designs CRISPR guide RNAs targeting key latency/reactivation genes           | ✅ Implemented |
-| DeliveryOptimizationAgent  | Suggests delivery mechanisms for CRISPR or drugs (e.g., AAV, LNP, microfluidics) | ✅ Implemented |
-| ReportGeneratorAgent        | Creates structured biomedical reports from agent outputs                      | ✅ Implemented |
-| TransmissionPreventionAgent| Identifies non-invasive strategies to reduce outbreaks and transmission risk | ✅ Implemented |
+
+| Agent Name                  | Description                                                                                      | Status           |
+|----------------------------|--------------------------------------------------------------------------------------------------|------------------|
+| VirologyAgent              | Extracts HSV latency, replication, reactivation genes, and regulatory data from LLMs             | ✅ Implemented    |
+| TargetPrioritizationAgent   | Prioritizes genes/proteins for therapeutic targeting based on impact score                       | ✅ Implemented    |
+| DrugDesignAgent            | Generates novel compound suggestions using AI-driven molecular synthesis                         | ✅ Implemented    |
+| CRISPRDesignAgent          | Designs CRISPR guide RNAs targeting key latency/reactivation genes                              | ✅ Implemented    |
+| DeliveryOptimizationAgent   | Suggests delivery mechanisms for CRISPR or drugs (e.g., AAV, LNP, microfluidics)                | ✅ Implemented    |
+| TransmissionPreventionAgent | Identifies non-invasive strategies to reduce outbreaks and transmission risk                    | ✅ Implemented    |
+| ReportGeneratorAgent       | Creates structured biomedical reports from agent outputs                                        | ✅ Implemented    |
 
 ## 🧠 Agent Execution Flow
 
@@ -148,6 +150,7 @@ After executing all agents through the Pipeline Manager, HerpAI automatically ex
 Planned enhancements include:
 - Markdown/PDF biomedical report compilation
 - Scientific charts and agent summary visualization
+- Scientific charts (e.g., gene impact bar charts, gRNA design matrix) will be integrated into reports
 
 ## 📊 Output Structure
 
@@ -155,7 +158,7 @@ HerpAI saves two layers of output:
 1. **Structured Agent Results**: Saved as individual JSON files in the `/output` folder. Example: `virology_output.json`, `drug_design_output.json`, etc.
 2. **Final Report**: A compiled scientific report is generated in Markdown format at `output/final_report.md` and includes findings from all agents.
 
-This dual-output format supports both programmatic consumption and human-readable insight.
+This dual-output format supports both programmatic consumption and human-readable insight. Reports may include embedded diagrams and scientific charts saved in `/output` (e.g., PNG visualizations).
 
 ## 📄 License
 
