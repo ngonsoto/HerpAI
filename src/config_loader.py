@@ -24,7 +24,10 @@ class AppConfig:
             name: AgentConfig(
                 model_provider=agent.get("model_provider", raw_cfg["default_model_provider"]),
                 model=agent["model"],
-                prompt_version=agent.get("prompt_version", "v1")
+                prompt_version=agent.get("prompt_version", "v1"),
+                cache=agent.get("cache", False),
+                max_tokens=agent.get("max_tokens", 1000),
+                temperature=agent.get("temperature", 0.5)
             )
             for name, agent in raw_cfg.get("agents", {}).items()
         }

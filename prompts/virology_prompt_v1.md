@@ -12,4 +12,10 @@ Please provide your response in the following format:
 - **Reactivation Triggers**: List common reactivation triggers (e.g., stress, UV exposure, inflammation).
 - **Gene Regulation**: Brief overview of the regulation mechanism (if applicable).
 
-Please structure your answer clearly and provide scientific references or relevant studies where possible.
+Please return the following data in JSON format:
+{
+  "Latency Genes": [...],
+  "Replication Genes": [...],
+  "Reactivation Triggers": [...],
+  "Gene Regulation": "..."
+}

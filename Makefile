@@ -8,4 +8,6 @@ run:
 	set -a && . .env && set -a && PYTHONPATH=. python3 orchestrator/runner.py
 
 test:
-	PYTHONPATH=. python3 -m unittest discover tests
+	export SONNET_API_KEY=dummy_key; \
+	export PYTHONPATH=.; \
+	python3 -m unittest discover tests
