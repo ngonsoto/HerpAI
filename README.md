@@ -47,19 +47,19 @@ Built under the **OpenBioCure** initiative, HerpAI leverages a **modular multi-a
 ## 📁 Repository Structure
 
 HerpAI/
-├── agents/                # Modular AI agents  
-├── prompts/               # Prompt templates  
-├── molecule_generation/   # SMILES generation logic  
-├── simulation/            # Docking, ADMET, delivery models  
-├── knowledge_base/        # Paper ingestion and vector search  
-├── orchestrator/          # Agent pipeline orchestration  
-├── output/                # Generated scientific reports  
-├── api/                   # REST API interface  
-├── ui/                    # Optional user interface (Streamlit/Gradio)  
-├── tests/                 # Unit and integration tests  
-├── docs/                  # Whitepaper, diagrams, technical docs  
-├── LICENSE                # MIT License  
-└── README.md              # Project documentation
+      ├── agents/                # Modular AI agents
+      ├── prompts/               # Prompt templates
+      ├── molecule_generation/   # SMILES generation logic
+      ├── simulation/            # Docking, ADMET, delivery models
+      ├── knowledge_base/        # Paper ingestion and vector search
+      ├── orchestrator/          # Agent pipeline orchestration
+      ├── output/                # Generated scientific reports
+      ├── api/                   # REST API interface
+      ├── ui/                    # Optional user interface (Streamlit/Gradio)
+      ├── tests/                 # Unit and integration tests
+      ├── docs/                  # Whitepaper, diagrams, technical docs
+      ├── LICENSE                # MIT License
+      └── README.md              # Project documentation
 
 ---
 
