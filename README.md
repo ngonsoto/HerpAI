@@ -44,6 +44,48 @@ Built under the **OpenBioCure** initiative, HerpAI leverages a **modular multi-a
 
 ---
 
+## 🚀 Getting Started
+
+Follow these steps to set up and run HerpAI on your local machine.
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/openbiocure/HerpAI.git
+cd HerpAI
+```
+
+### 2. Create a virtual environment (optional but recommended)
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install required Python packages
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+Create a `.env` file in the project root with your API keys:
+
+```bash
+touch .env
+```
+Then add the following:
+```
+SONNET_API_KEY=your-sonnet-api-key-here
+OPENAI_API_KEY=your-openai-api-key-here
+```
+
+### 5. Run the pipeline
+```bash
+make run
+```
+
+You should see output from the active agent execution printed to your terminal.
+
+---
+
 ## 📁 Repository Structure
 
       .
@@ -74,7 +116,16 @@ HerpAI is released under the **MIT License** — feel free to use, extend, or re
 - 📄 [Whitepaper Outline](docs/whitepaper-outline.md) – Full structure of the HerpAI scientific paper detailing system architecture, methodology, and discovery flows.
 - 📜 [Code of Conduct](CODE_OF_CONDUCT.md) – Guidelines for respectful, inclusive, and collaborative contribution.
 - 🤝 [Contributing Guide](CONTRIBUTING.md) – Instructions for getting started, contributing code, or collaborating with the project.
+
 ---
+
+### 🤝 Collaboration Opportunities
+
+- Prompt engineering and optimization
+- New agent contributions (biology, chemistry, CRISPR, etc.)
+- Validation feedback from researchers
+- Technical documentation and scientific writing
+- Frontend/API integration enhancements
 
 ## 📬 Contact
 
