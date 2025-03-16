@@ -46,7 +46,7 @@ Built under the **OpenBioCure** initiative, HerpAI leverages a **modular multi-a
 
 ## 📁 Repository Structure
 
-HerpAI/
+      .
       ├── agents/                # Modular AI agents
       ├── prompts/               # Prompt templates
       ├── molecule_generation/   # SMILES generation logic
