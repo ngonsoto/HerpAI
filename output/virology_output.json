@@ -1,41 +1,40 @@
 {
+  "MetaData": "The following data represents the current understanding of HSV-2 latency, replication, and reactivation mechanisms. HSV-2 shares many similarities with HSV-1 in terms of gene function and regulation, though with some differences in tissue tropism and clinical manifestations. Much of our understanding about herpesvirus latency comes from studies on both HSV-1 and HSV-2.",
   "Latency Genes": [
-    "LAT (Latency-Associated Transcript)",
-    "ICP0 (Infected Cell Protein 0)",
-    "ICP4 (Infected Cell Protein 4)",
-    "ICP27 (Infected Cell Protein 27)",
-    "ICP22 (Infected Cell Protein 22)",
-    "ICP47 (Infected Cell Protein 47)",
-    "RL1 (\u03b334.5)",
-    "US3 kinase"
+    "LAT (Latency-Associated Transcript) - The primary transcript expressed during latency",
+    "ICP0 (Infected Cell Protein 0) - Involved in reactivation from latency",
+    "ICP4 (Infected Cell Protein 4) - Repressed during latency",
+    "ICP27 (Infected Cell Protein 27) - Repressed during latency",
+    "ICP22 (Infected Cell Protein 22) - Repressed during latency",
+    "ICP47 (Infected Cell Protein 47) - Involved in immune evasion",
+    "ORF-O and ORF-P - Antisense transcripts to ICP0 and ICP4",
+    "miRNAs - Various microRNAs expressed during latency that regulate viral and host gene expression"
   ],
   "Replication Genes": [
-    "UL5 (helicase-primase complex)",
-    "UL8 (helicase-primase complex)",
-    "UL9 (origin-binding protein)",
-    "UL29 (single-stranded DNA binding protein)",
-    "UL30 (DNA polymerase)",
-    "UL42 (DNA polymerase processivity factor)",
-    "UL52 (helicase-primase complex)",
-    "UL54 (transcriptional regulator)",
-    "UL12 (alkaline nuclease)",
-    "UL23 (thymidine kinase)",
-    "UL39/40 (ribonucleotide reductase)"
+    "UL5 - Component of helicase-primase complex",
+    "UL8 - Component of helicase-primase complex",
+    "UL9 - Origin-binding protein",
+    "UL29 (ICP8) - Single-stranded DNA binding protein",
+    "UL30 - DNA polymerase",
+    "UL42 - Polymerase processivity factor",
+    "UL52 - Component of helicase-primase complex",
+    "UL54 (ICP27) - Post-transcriptional regulator",
+    "US6 (gD) - Entry glycoprotein",
+    "UL27 (gB) - Fusion glycoprotein",
+    "UL44 (gC) - Attachment glycoprotein",
+    "UL22 (gH) - Entry glycoprotein"
   ],
   "Reactivation Triggers": [
-    "Psychological stress",
-    "Physical stress",
-    "UV exposure",
-    "Tissue damage",
-    "Fever",
-    "Hormonal changes",
+    "Physical or emotional stress",
+    "Hormonal changes (e.g., menstruation)",
+    "UV light exposure",
+    "Fever or systemic illness",
+    "Tissue damage or local trauma",
     "Immunosuppression",
-    "Inflammation",
     "Nerve trauma",
-    "Menstruation",
     "Hyperthermia",
-    "Surgical procedures",
-    "Concurrent infections"
+    "Axonal injury",
+    "NGF (nerve growth factor) deprivation"
   ],
-  "Gene Regulation": "HSV-2 latency and reactivation involve complex regulatory mechanisms. During latency, viral gene expression is largely suppressed except for LAT, which may inhibit apoptosis in neurons and regulate chromatin structure. LAT also produces miRNAs that can downregulate expression of immediate-early genes like ICP0 and ICP4. Upon reactivation, stress pathways activate transcription factors (e.g., HCF-1, Oct-1, VP16) that initiate viral gene expression in a temporal cascade (immediate-early \u2192 early \u2192 late). Epigenetic modifications play a crucial role, with latency associated with heterochromatin marks (H3K9me3, H3K27me3) on viral DNA, while reactivation involves chromatin remodeling toward euchromatin (H3K4me3, acetylated histones). ICP0 functions as a key regulator by counteracting host silencing mechanisms, including disruption of ND10 nuclear bodies and inhibition of interferon responses. The balance between cellular immune surveillance and viral immune evasion strategies also contributes to the regulation of latency and reactivation."
+  "Gene Regulation": "During latency, HSV-2 gene expression is highly restricted, with LAT being the predominant transcript. LAT is thought to protect neurons from apoptosis and helps maintain the viral genome. LAT can also give rise to microRNAs that target and inhibit viral lytic genes like ICP0 and ICP4. The transition from latency to reactivation involves de-repression of viral immediate-early (IE) genes like ICP0, which acts as a transactivator by counteracting host silencing mechanisms. ICP0 has E3 ubiquitin ligase activity that targets host restrictive factors like ND10 nuclear bodies, helping to reactivate the viral genome. Stress-induced signaling pathways (particularly those involving JNK and c-Jun) can lead to histone modifications that promote the accessibility of viral promoters. Upon reactivation, the virus follows a temporal cascade of gene expression: immediate-early (\u03b1) \u2192 early (\u03b2) \u2192 late (\u03b3), ultimately leading to the production of infectious virions."
 }

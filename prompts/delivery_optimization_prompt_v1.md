@@ -10,10 +10,11 @@ Based on the biological context and gene targets provided, propose the most effe
 4. Immunogenicity reduction techniques (e.g., PEGylation, encapsulation).
 5. Duration of expression and efficiency of uptake.
 
-Please return the results in the following JSON format:
+Please return your response in the following JSON format, if you plan to interpret or add any extra commentary add it an a JSON meta-data object
 
 ```json
 {
+  "MetaData": "Your interpretation and explanation",
   "Recommended Delivery Strategy": {
     "Vector": "AAV-PHP.S",
     "Promoter": "Synapsin promoter",

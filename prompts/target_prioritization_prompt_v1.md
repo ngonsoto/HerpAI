@@ -5,8 +5,11 @@ Based on the provided context (gene functions, roles in latency, replication, or
 2. Criticality in viral lifecycle
 3. Conservation across virus strains
 
-Please return the result in this JSON format:
+Please return your response in the following JSON format, if you plan to interpret or add any extra commentary add it an a JSON meta-data object
+
+```json
 {
+  "MetaData": "Your interpretation and explanation",
   "Top Targets": [ "GeneA", "GeneB", "GeneC" ],
   "Rationale": "Brief reasoning for why these genes were prioritized."
 }

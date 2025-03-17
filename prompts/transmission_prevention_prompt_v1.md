@@ -9,10 +9,11 @@ Please perform the following tasks:
 4. Recommend delivery approaches to enhance adherence, bioavailability, and efficacy.
 5. Propose novel scientific hypotheses for reducing transmissibility using AI-assisted reasoning.
 
-Please return your response in **JSON format** structured as:
+Please return your response in the following JSON format, if you plan to interpret or add any extra commentary add it an a JSON meta-data object
 
 ```json
 {
+  "MetaData": "Your interpretation and explanation",
   "Transmission Reduction Strategies": [ 
     "Antiviral prophylaxis", 
     "Barrier methods", 

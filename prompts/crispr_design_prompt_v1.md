@@ -11,10 +11,11 @@ Please include:
 3. Any relevant CRISPR system recommendation (e.g., Cas9, Cas12a).
 4. Risk assessment of off-target effects.
 
-Please return your response in the following JSON format:
+Please return your response in the following JSON format, if you plan to interpret or add any extra commentary add it an a JSON meta-data object
 
 ```json
 {
+  "metadata": "Your interpretation and explanation",
   "Target Genes": ["Gene A", "Gene B"],
   "Recommended gRNAs": [
     {"sequence": "AGTCTAGCTAGCTA", "target_gene": "Gene A", "system": "Cas9", "off_target_risk": "Low"},

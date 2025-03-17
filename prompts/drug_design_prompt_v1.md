@@ -8,10 +8,11 @@ Given the prioritized viral gene targets for **{{virus_type}}**, propose candida
 2. Chemical scaffolds known to interact with such sites.
 3. Small molecule candidates with rationale.
 
-Please return your results in the following JSON format:
+Please return your response in the following JSON format, if you plan to interpret or add any extra commentary add it an a JSON meta-data object
 
 ```json
 {
+  "MetaData": "Your interpretation and explanation",
   "Top Drug Candidates": ["Compound A", "Compound B", "Compound C"],
   "Rationale": "Summary of binding site interaction and drug design considerations."
 }

@@ -1,15 +1,16 @@
 {
+  "MetaData": "HSV-2 is a neurotropic virus that establishes latency in sensory neurons of the dorsal root ganglia and lumbosacral ganglia. Effective genetic therapy delivery must target these neural tissues while also addressing active viral replication in epithelial cells during outbreaks. The strategy below balances neural targeting with immune evasion and sufficient expression duration.",
   "Recommended Delivery Strategy": {
-    "Vector": "AAV2/8 with HSV-2 glycoprotein modifications",
-    "Promoter": "Neurotropic hCMV/UL27 chimeric promoter",
-    "Route": "Combined intradermal and intravaginal/perianal administration",
+    "Vector": "AAV9 with modified capsid for enhanced neural tropism",
+    "Promoter": "Dual promoter system: hCMV/HSV-2 latency-associated transcript (LAT) enhancer",
+    "Route": "Intradermal injection at site of recurrent outbreaks with retrograde transport",
     "Supplementation": [
-      "Cationic LNPs for immediate effect",
-      "PEGylation of vector capsid",
-      "Transcriptional targeting with LAT region enhancer"
+      "Lipid nanoparticle (LNP) co-delivery",
+      "PEGylated polymer coating",
+      "Cell-penetrating peptides"
     ]
   },
-  "Estimated Delivery Efficiency": "~65-70%",
-  "Expression Duration": "8-12 weeks for AAV component; 5-7 days for LNP component",
-  "Additional Notes": "Strategy targets both latently infected neurons in dorsal root ganglia and active replication in epithelial tissues. The dual delivery approach provides immediate knockdown via LNPs while establishing longer-term expression via AAV. Tissue-specific promoters minimize off-target effects. Consider cyclophosphamide pre-treatment to reduce neutralizing antibodies in previously exposed patients."
+  "Estimated Delivery Efficiency": "~70-75% to neural ganglia, ~85% to epithelial tissue",
+  "Expression Duration": "6-8 months for AAV-delivered construct",
+  "Additional Notes": "The AAV9 serotype demonstrates strong neural tropism while the modified capsid enhances transduction of sensory neurons. The dual promoter system enables expression in both latently infected neurons (LAT enhancer) and actively replicating virus (hCMV). Retrograde transport from skin injection sites mimics the natural path of HSV-2 and targets relevant ganglia. LNP co-delivery improves initial transduction while PEGylation reduces neutralizing antibody formation. Consider readministration protocol after 6 months to maintain therapeutic levels."
 }

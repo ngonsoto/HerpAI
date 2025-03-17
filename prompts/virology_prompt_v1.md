@@ -12,8 +12,11 @@ Please provide your response in the following format:
 - **Reactivation Triggers**: List common reactivation triggers (e.g., stress, UV exposure, inflammation).
 - **Gene Regulation**: Brief overview of the regulation mechanism (if applicable).
 
-Please return the following data in JSON format:
+Please return your response in the following JSON format, if you plan to interpret or add any extra commentary add it an a JSON meta-data object
+
+```json
 {
+  "MetaData": "Your interpretation and explanation",
   "Latency Genes": [...],
   "Replication Genes": [...],
   "Reactivation Triggers": [...],

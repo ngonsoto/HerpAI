@@ -1,8 +1,9 @@
 {
+  "MetaData": "My analysis is based on known HSV-2 viral gene functions, druggability considerations, and their roles in the viral lifecycle. I've prioritized targets that are both essential for viral functions and potentially druggable, with consideration for conservation across strains to minimize resistance development.",
   "Top Targets": [
-    "UL30 (DNA polymerase)",
-    "UL5/UL8/UL52 (Helicase-primase complex)",
-    "UL39 (Ribonucleotide reductase)"
+    "DNA polymerase (UL30)",
+    "Helicase-primase complex (UL5/UL8/UL52)",
+    "Thymidine kinase (UL23)"
   ],
-  "Rationale": "These targets were prioritized based on essential functions in viral replication, proven druggability with precedent antivirals, and high sequence conservation across HSV strains. UL30 is the primary target of current nucleoside analogs like acyclovir, while the helicase-primase complex offers an orthogonal mechanism of action demonstrated by clinical candidates. UL39 (ribonucleotide reductase) is essential for viral DNA synthesis in non-dividing cells and has well-characterized active sites amenable to inhibitor design."
+  "Rationale": "DNA polymerase (UL30) is critical for viral replication, highly conserved, and has proven druggability (acyclovir, foscarnet target this pathway). The helicase-primase complex is essential for DNA unwinding during replication with demonstrated druggability (pritelivir targets this complex). Thymidine kinase, while not required for replication in some contexts, is critical for nucleoside analog activation and represents a well-validated drug target with clinical precedent. These targets offer a combination of essential viral functions, demonstrated druggability, and sufficient conservation to minimize resistance."
 }

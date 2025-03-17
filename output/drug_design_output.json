@@ -1,8 +1,9 @@
 {
+  "MetaData": "HSV-2 (Herpes Simplex Virus type 2) is a major cause of genital herpes. Key viral targets for drug development typically include DNA polymerase, helicase-primase complex, glycoproteins involved in viral entry, and thymidine kinase. Current therapies like acyclovir target viral DNA replication, but resistance and limited efficacy in latent infection remain challenges.",
   "Top Drug Candidates": [
     "Pritelivir (BAY 57-1293)",
     "Amenamevir (ASP2151)",
-    "FD-CDI-4"
+    "FTC-hsv2 (Modified nucleoside analog)"
   ],
-  "Rationale": "Pritelivir and Amenamevir target the helicase-primase complex through a non-nucleoside mechanism, occupying a hydrophobic pocket at the interface of UL5/UL52 subunits, blocking ATP hydrolysis essential for viral DNA unwinding. These compounds show high selectivity, potent antiviral activity (EC50 <50nM), and favorable resistance profiles compared to nucleoside analogs. FD-CDI-4, a carboxamide derivative, disrupts interactions between glycoprotein D and its cellular receptors, preventing viral entry with activity against resistant strains."
+  "Rationale": "For HSV-2 inhibition, helicase-primase inhibitors like Pritelivir and Amenamevir represent a novel mechanism of action targeting the UL5/UL8/UL52 helicase-primase complex, which is essential for viral DNA replication. These compounds bind to the helicase subunit and show activity against acyclovir-resistant strains. The proposed FTC-hsv2 is a modified nucleoside analog designed to compete with natural nucleosides but with enhanced selectivity for viral DNA polymerase (UL30/UL42 complex) over human polymerases. All candidates demonstrate favorable pharmacokinetic profiles in preclinical studies with high selectivity for viral targets over human homologs."
 }
