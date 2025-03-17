@@ -1,6 +1,9 @@
 # HerpAI  
 *Accelerating the discovery of a functional cure for HSV-1 and HSV-2 using AI.*
 
+➡️ **[View Final Sample Report (Markdown)](./simulation/v1/final_report.md)**  
+See what HerpAI is capable of generating — a comprehensive scientific report built by chaining AI agents.
+
 ---
 
 ## ✨ What is HerpAI?
@@ -87,7 +90,6 @@ This will:
 - Export individual agent outputs to `/output`
 - Generate a compiled Markdown report at `/output/final_report.md`
 
-
 You should see output from the active agent execution printed to your terminal.
 
 ---
@@ -109,7 +111,6 @@ You should see output from the active agent execution printed to your terminal.
       └── README.md              # Project documentation
 
 ---
-
 
 ## 🧠 AI Agent Modules Overview
 
@@ -160,11 +161,6 @@ HerpAI saves two layers of output:
 
 This dual-output format supports both programmatic consumption and human-readable insight. Reports may include embedded diagrams and scientific charts saved in `/output` (e.g., PNG visualizations).
 
-### 📎 View Sample Report
-
-You can view a real generated biomedical report here:  
-➡️ [Final Sample Report (Markdown)](./simulation/v1/final_report.md)
-
 ---
 
 ## 🧪 Sample Simulation Outputs
@@ -189,7 +185,6 @@ Each file corresponds to the structured output of one AI agent. These simulation
   "Rationale": "These targets were prioritized based on essential functions in viral replication, proven druggability with precedent antivirals, and high sequence conservation across HSV strains. UL30 is the primary target of current nucleoside analogs like acyclovir, while the helicase-primase complex offers an orthogonal mechanism of action demonstrated by clinical candidates. UL39 (ribonucleotide reductase) is essential for viral DNA synthesis in non-dividing cells and has well-characterized active sites amenable to inhibitor design."
 }
 ```
-Final report can be found here 
 
 > 💡 Note: As the project evolves, we may migrate these simulations under a more structured location like `./data/simulations/` to align with a standardized data management structure.
 
