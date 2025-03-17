@@ -160,6 +160,39 @@ HerpAI saves two layers of output:
 
 This dual-output format supports both programmatic consumption and human-readable insight. Reports may include embedded diagrams and scientific charts saved in `/output` (e.g., PNG visualizations).
 
+### 📎 View Sample Report
+
+You can view a real generated biomedical report here:  
+➡️ [Final Sample Report (Markdown)](./simulation/v1/final_report.md)
+
+---
+
+## 🧪 Sample Simulation Outputs
+
+To help researchers and contributors understand how HerpAI outputs are structured, we’ve included **sample simulation result files** generated from pipeline execution.
+
+You can find them in the following folder:
+```
+./simulation/v1/
+```
+
+Each file corresponds to the structured output of one AI agent. These simulations help illustrate the JSON format, scientific data points, and types of insights HerpAI can generate.
+
+### Example: TargetPrioritizationAgent Output
+```json
+{
+  "Top Targets": [
+    "UL30 (DNA polymerase)",
+    "UL5/UL8/UL52 (Helicase-primase complex)",
+    "UL39 (Ribonucleotide reductase)"
+  ],
+  "Rationale": "These targets were prioritized based on essential functions in viral replication, proven druggability with precedent antivirals, and high sequence conservation across HSV strains. UL30 is the primary target of current nucleoside analogs like acyclovir, while the helicase-primase complex offers an orthogonal mechanism of action demonstrated by clinical candidates. UL39 (ribonucleotide reductase) is essential for viral DNA synthesis in non-dividing cells and has well-characterized active sites amenable to inhibitor design."
+}
+```
+Final report can be found here 
+
+> 💡 Note: As the project evolves, we may migrate these simulations under a more structured location like `./data/simulations/` to align with a standardized data management structure.
+
 ## 📄 License
 
 HerpAI is released under the **MIT License** — feel free to use, extend, or remix it for scientific and research purposes.
