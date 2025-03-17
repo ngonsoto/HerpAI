@@ -14,6 +14,18 @@
       }
     },
     {
+      "name": "Run Europe Ingestion Pipeline",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/knowledge_base/ingestion/run_pmc_pdf_download.py",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
       "name": "Debug HerpAI Unit Tests",
       "type": "python",
       "request": "launch",

@@ -188,6 +188,21 @@ Each file corresponds to the structured output of one AI agent. These simulation
 
 > 💡 Note: As the project evolves, we may migrate these simulations under a more structured location like `./data/simulations/` to align with a standardized data management structure.
 
+## 📚 Knowledge Base Data Sources
+
+| Source             | Description                                             | Format(s)        | Status       | Notes                                      |
+|--------------------|---------------------------------------------------------|------------------|--------------|--------------------------------------------|
+| **PubMed**         | Biomedical abstracts and metadata via NCBI Entrez API   | Text/Abstract    | ✅ Implemented | Limited to abstracts unless PDF manually retrieved |
+| **Europe PMC**     | Full-text and abstracts from biomedical literature      | Text/Abstract    | ✅ Implemented | Some open-access full-text available        |
+| **ClinicalTrials.gov** | Clinical trial descriptions and metadata            | XML / JSON       | 🔜 Planned    | Can be used to augment clinical context     |
+| **bioRxiv / medRxiv** | Preprint articles in biomedical sciences             | PDF / Text       | 🔜 Planned    | Can scrape PDFs and metadata via RSS/API    |
+| **arXiv (q-bio)**  | Preprints in quantitative biology                       | PDF / Text       | 🔜 Planned    | Use arXiv API and download PDFs             |
+| **CORD-19 Dataset** | COVID-19 research dataset from Allen Institute         | JSON / PDF       | 🔜 Planned    | Large biomedical literature collection      |
+| **Patent Databases** | Biomedical patent literature (e.g., Espacenet, USPTO) | PDF / Text       | 🔜 Planned    | Relevant for drug discovery IP landscape    |
+| **Open Access Repositories** | Institutional OA content                       | PDF / Text       | 🔜 Planned    | Target bioinformatics and virology OA repos |
+| **WHO Database**   | Reports and publications related to virology            | PDF              | 🔜 Planned    | Public reports useful for public health context |
+
+
 ## 📄 License
 
 HerpAI is released under the **MIT License** — feel free to use, extend, or remix it for scientific and research purposes.
