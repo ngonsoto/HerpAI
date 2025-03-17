@@ -220,4 +220,23 @@ HerpAI is released under the **MIT License** — feel free to use, extend, or re
 **Email:** openbiocure@gmail.com  
 **GitHub:** [https://github.com/openbiocure/HerpAI](https://github.com/openbiocure/HerpAI)
 
-> Let’s end HSV — together.
+ ---
+ 
+ ## 🙋‍♀️ Help Needed — Join the Mission!
+ 
+ We welcome passionate collaborators to help scale HerpAI and push scientific innovation forward. Below are roles where we need your support:
+ 
+ | Role                          | Background/Expertise Needed                                               |
+ |-------------------------------|---------------------------------------------------------------------------|
+ | Biomedical Research Advisor   | Virology, molecular biology, HSV-specific research                        |
+ | Computational Biologist       | Omics data processing, protein structure modeling, pathway analysis       |
+ | AI/ML Engineer                | LLM prompt tuning, LangChain integration, RAG pipelines                   |
+ | Software Engineer (Backend)   | Python, API development, data pipelines                                   |
+ | UI/UX Designer                | Streamlit/Gradio UI design, scientific visualization                      |
+ | Scientific Writer             | Assist in report writing, whitepaper contributions, and academic output   |
+ | DevOps Contributor            | CI/CD pipelines, deployment scaffolding, automation scripting             |
+ | Community Manager             | Facilitate open collaboration, respond to contributors, handle outreach   |
+ 
+ > 💡 If you want to contribute or collaborate, please open an issue or send an email to [openbiocure@gmail.com](mailto:openbiocure@gmail.com).
+ 
+ > Let’s end HSV — together.
