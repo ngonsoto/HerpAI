@@ -4,7 +4,7 @@
 ➡️ **[View Final Sample Report (Markdown)](./simulation/v1/final_report.md)**  
 See what HerpAI is capable of generating — a comprehensive scientific report built by chaining AI agents.
 
-📍 **[Project Roadmap](./roadmap.md)** – See the strategic vision, goals, and ML/LLM multi-agent architecture.
+📍 **[Project Roadmap](./Roadmap.md)** – See the strategic vision, goals, and ML/LLM multi-agent architecture.
 # HerpAI  
 
 ---
