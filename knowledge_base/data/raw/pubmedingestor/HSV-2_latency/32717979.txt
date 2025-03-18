@@ -1,0 +1,4 @@
+Title: Uracil-Containing Heterodimers of a New Type: Synthesis and Study of Their Anti-Viral Properties.
+
+Abstract:
+Widespread latent herpes viral infections within a population can lead to the development of co-infections in HIV-infected patients. These infections are not particularly dangerous for healthy individuals and often occur with minimal symptoms, but for those who are immunocompromised, these infections can accelerate the acute phase of HIV infection and AIDS. Thus, the idea of designing compounds that could combine activity against HIV and co-infections would seem promising. In that regard, eleven compounds were synthesized that represent conjugates of non-nucleoside HIV reverse transcriptase inhibitors and nucleoside inhibitors of the herpes family viruses with the hope that these novel heterodimers will result in dual activity against HIV and concomitant herpes virus infections.

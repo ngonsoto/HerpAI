@@ -18,15 +18,15 @@ class DocumentCatalogManager:
                 file_name TEXT,
                 file_type TEXT,
                 title TEXT,
-                content TEXT,
+                path TEXT,
                 tags TEXT,
-                ingestion_date TEXT
+                ingested_at TEXT
             )
         """)
         conn.commit()
         conn.close()
 
-    def add_document(self, file_name, file_type, title, content, tags=""):
+    def add_document(self, file_name, file_type, title, path, ingested_at, tags=""):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
 
@@ -40,9 +40,9 @@ class DocumentCatalogManager:
             print(f"[Catalog] Skipping duplicate entry: {file_name}")
         else:
             cursor.execute("""
-                INSERT INTO documents_catalog (file_name, file_type, title, content, tags, ingestion_date)
+                INSERT INTO documents_catalog (file_name, file_type, title, path, tags, ingested_at)
                 VALUES (?, ?, ?, ?, ?, ?)
-            """, (file_name, file_type, title, content, tags, datetime.now().isoformat()))
+            """, (file_name, file_type, title, path, tags, ingested_at))
             conn.commit()
             print(f"[Catalog] Document added: {file_name}")
 
@@ -52,10 +52,10 @@ class DocumentCatalogManager:
         os.makedirs(export_dir, exist_ok=True)
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        query = "SELECT id, file_name, file_type, title, content FROM documents_catalog WHERE 1=1"
+        query = "SELECT id, file_name, file_type, title, path FROM documents_catalog WHERE 1=1"
         params = []
         if keyword:
-            query += " AND content LIKE ?"
+            query += " AND title LIKE ?"
             params.append(f"%{keyword}%")
         if tag_filter:
             query += " AND tags LIKE ?"
@@ -64,8 +64,8 @@ class DocumentCatalogManager:
         conn.close()
 
         for row in rows:
-            doc_id, fname, ftype, title, content = row
+            doc_id, fname, ftype, title, path = row
             output_path = os.path.join(export_dir, f"{doc_id}_{fname}.txt")
             with open(output_path, "w", encoding="utf-8") as f:
-                f.write(content)
+                f.write(f"Title: {title}\nPath: {path}")
             print(f"[↓] Exported: {output_path}")

@@ -1,0 +1,4 @@
+Title: A fur plucking model to study herpes simplex virus reactivation and recurrent disease.
+
+Abstract:
+Herpes simplex viruses (HSV-1 and HSV-2) most commonly cause ulcerative epithelial lesions (cold sores, genital herpes). Importantly, HSV establishes life-long persistent (latent) infection in sensory neurons. Reactivation from latency produces recurrent epithelial lesions, which constitute the greatest burden of HSV disease in people. The mechanisms that regulate latency and reactivation remain poorly understood, in part due to limitations in the animal models available for studying HSV reactivation. We have developed a simple and tractable model to induce HSV-1 and HSV-2 reactivation from latently infected sensory ganglia. We infected C57BL/6 mice with 1 × 10

@@ -14,10 +14,10 @@
       }
     },
     {
-      "name": "Run Europe Ingestion Pipeline",
+      "name": "Run DataSources Ingestion Pipeline",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/knowledge_base/ingestion/run_pmc_pdf_download.py",
+      "program": "${workspaceFolder}/knowledge_base/ingestion/orchestrator.py",
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
       "cwd": "${workspaceFolder}",

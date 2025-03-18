@@ -1,4 +1,4 @@
-.PHONY: init run test ingest_pubmed ingest_europe_pmc ingest precommit
+.PHONY: init run test ingest precommit
 
 init:
 	python3 -m venv venv
@@ -16,10 +16,5 @@ test:
 	export PYTHONPATH=.; \
 	python3 -m unittest discover tests
 
-ingest_pubmed:
-	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/ingestion/run_pubmed_ingestion.py
-
-ingest_europe_pmc:
-	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/ingestion/run_europe_pmc_ingestion.py
-
-ingest: ingest_pubmed ingest_europe_pmc
+ingest:
+	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/ingestion/orchestrator.py

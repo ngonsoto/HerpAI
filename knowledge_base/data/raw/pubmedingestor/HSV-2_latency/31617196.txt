@@ -1,0 +1,4 @@
+Title: The Murine Intravaginal HSV-2 Challenge Model for Investigation of DNA Vaccines.
+
+Abstract:
+DNA vaccines have been licensed in veterinary medicine and have promise for humans. This format is relatively immunogenic in mice and guinea pigs, the two principle HSV-2 animal models, permitting rapid assessment of vectors, antigens, adjuvants, and delivery systems. Limitations include the relatively poor immunogenicity of naked DNA in humans and the profound differences in HSV-2 pathogenesis between host species. Herein, we detail lessons learned investigating candidate DNA vaccines in the progesterone-primed female mouse vaginal model of HSV-2 infection as a guide to investigators in the field.

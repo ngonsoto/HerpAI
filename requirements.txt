@@ -11,3 +11,5 @@ pdfplumber
 pandas
 python-docx
 pre-commit==3.7.0
+beautifulsoup4
+lxml

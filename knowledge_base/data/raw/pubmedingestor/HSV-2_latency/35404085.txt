@@ -1,0 +1,4 @@
+Title: Neuronal miR-138 Represses HSV-2 Lytic Infection by Regulating Viral and Host Genes with Mechanistic Differences from HSV-1.
+
+Abstract:
+Herpes simplex virus 2 (HSV-2) establishes latent infection in dorsal root ganglion (DRG) neurons after productive (lytic) infection in peripheral tissues. A neuron-specific microRNA, miR-138, favors HSV-1 latency by repressing viral
