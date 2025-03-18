@@ -55,6 +55,36 @@ Create a PR against the `main` branch with a clear description of your changes.
 
 ---
 
+## ✅ Commit Message Guidelines
+
+To maintain consistency and improve collaboration across contributions, we follow a standardized commit message format inspired by Conventional Commits.
+
+Please structure your commits as follows:
+
+```
+<type>(optional-scope): <short description>
+```
+
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, semicolons, etc.)
+- `refactor`: Code refactoring that neither fixes a bug nor adds a feature
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+- `build`: Changes that affect the build system or dependencies
+- `ci`: Continuous Integration/Deployment related changes
+
+✅ Example:
+```
+feat(agent): add CRISPRDesignAgent prompt template
+docs: update README with simulation sample
+```
+
+👉 Consider setting up a Git pre-commit hook to enforce this automatically.
+
+---
+
 ## 📢 Communication
 If you want to discuss your contribution idea or ask questions, feel free to:
 - Open a GitHub Issue

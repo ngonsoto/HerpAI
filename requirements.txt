@@ -10,3 +10,4 @@ biopython>=1.83
 pdfplumber
 pandas
 python-docx
+pre-commit==3.7.0

@@ -1,8 +1,12 @@
-.PHONY: init run test
+.PHONY: init run test ingest_pubmed ingest_europe_pmc ingest precommit
 
 init:
 	python3 -m venv venv
 	. venv/bin/activate && pip install -r requirements.txt
+
+precommit:
+	pip install pre-commit
+	pre-commit install --hook-type commit-msg
 
 run:
 	set -a && . .env && set -a && PYTHONPATH=. python3 orchestrator/runner.py
