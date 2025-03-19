@@ -18,3 +18,6 @@ test:
 
 ingest:
 	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/ingestion/orchestrators/orchestrator.py
+
+index:
+	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/catalog/document_scanner.py

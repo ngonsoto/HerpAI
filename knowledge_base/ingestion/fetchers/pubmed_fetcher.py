@@ -19,14 +19,17 @@ class PubMedFetcher:
         print(f"[✓] Fetched: {search_url}")
         search_tree = ElementTree.fromstring(search_response.content)
         id_list = [id_elem.text for id_elem in search_tree.findall(".//Id")]
+        
+        print(f"[✓] Total articles found: {len(id_list)}")
 
         summaries = []
-        for pubmed_id in id_list:
+        for idx, pubmed_id in enumerate(id_list, 1):
+            print(f"[→] Fetching summary for PubMed ID {pubmed_id} ({idx}/{len(id_list)})")
             summary = self.fetch_summary(pubmed_id)
             if summary:
                 summaries.append(summary)
                 
-        print(f"[✓] Fetched: {summaries.count}")
+        print(f"[✓] Total summaries fetched: {len(summaries)}")
         return summaries
 
     def fetch_summary(self, pubmed_id):
@@ -43,6 +46,7 @@ class PubMedFetcher:
         title_elem = summary_tree.find(".//Item[@Name='Title']")
         abstract = self.fetch_abstract(pubmed_id)
 
+        print(f"[✓] Fetched summary for PubMed ID {pubmed_id}")
         return {
             "id": pubmed_id,
             "title": title_elem.text if title_elem is not None else "",
@@ -62,4 +66,6 @@ class PubMedFetcher:
         tree = ElementTree.fromstring(fetch_response.content)
         abstract_texts = tree.findall(".//AbstractText")
         abstract = " ".join([elem.text for elem in abstract_texts if elem.text])
+        
+        print(f"[✓] Fetched abstract for PubMed ID {pubmed_id} ({'Found' if abstract else 'Empty'})")
         return abstract

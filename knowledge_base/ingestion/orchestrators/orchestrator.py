@@ -8,8 +8,8 @@ def run_all_ingestions():
     catalog = DocumentCatalogManager()
     queries = ["HSV-2 latency"]
     ingestors = [
-        #PubMedIngestor(),
-        #EuropePMCIngestor(),
+        PubMedIngestor(),
+        EuropePMCIngestor(),
         PMCPDFIngestor()
     ]
     for ingestor in ingestors:
