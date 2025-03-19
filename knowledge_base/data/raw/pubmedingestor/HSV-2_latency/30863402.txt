@@ -1,4 +1,0 @@
-Title: Herpes Simplex Virus Type 2 Immediate Early Protein ICP27 Inhibits IFN-β Production in Mucosal Epithelial Cells by Antagonizing IRF3 Activation.
-
-Abstract:
-Herpes simplex virus type 2 (HSV-2) is the main cause of genital herpes and infections are common in the lower genital tract. Although neuronal and immune cells can be infected, epithelial cells, and keratinocytes are the primary HSV-2 target cells. HSV-2 establishes latency by evading the host immune system and its infection can also increase the risk of HIV-1 sexual transmission. Our pervious study found that HSV-2 immediate early protein ICP22, inhibited IFN-β production by interfering with the IRF3 pathway. However, ICP22-null HSV-2 did not completely lose the capability of suppressing IFN-β induction, suggesting the involvement of other viral components in the process. In this study, by using an

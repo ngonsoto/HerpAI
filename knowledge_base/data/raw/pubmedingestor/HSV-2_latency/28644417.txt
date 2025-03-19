@@ -1,4 +1,0 @@
-Title: Herpes Simplex Virus Establishment, Maintenance, and Reactivation: In Vitro Modeling of Latency.
-
-Abstract:
-All herpes viruses establish lifelong infections (latency) in their host, and herpes simplex viruses (HSVs) are highly prevalent worldwide. Recurrence of HSV infections contributes to significant disease burden in people and on rare occasion can be fatal. Cell culture models that recapitulate latent infection provide valuable insight on the host processes regulating viral establishment and maintenance of latency. More robust and rapid than infections in live animal studies, advancements in neuronal culture techniques have made the systematic analysis of viral reactivation mechanisms feasible. Only recently have human neuronal cell lines been available, but models in the natural host cell are a critical addition to the currently available models.

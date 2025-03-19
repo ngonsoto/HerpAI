@@ -1,4 +1,0 @@
-Title: Therapeutic Prime/Pull Vaccination of HSV-2 Infected Guinea Pigs with the Ribonucleotide Reductase 2 (RR2) Protein and CXCL11 Chemokine Boosts Antiviral Local Tissue-Resident and Effector Memory CD4(+) and CD8(+) T Cells and Protects Against Recurrent Genital Herpes.
-
-Abstract:
-Following acute herpes simplex virus type 2 (HSV-2) infection, the virus undergoes latency in sensory neurons of the dorsal root ganglia (DRG). Intermittent virus reactivation from latency and shedding in the vaginal mucosa (VM) causes recurrent genital herpes. While T-cells appear to play a role in controlling virus reactivation and reducing the severity of recurrent genital herpes, the mechanisms for recruiting these T-cells into DRG and VM tissues remain to be fully elucidated. The present study investigates the effect of CXCL9, CXCL10, and CXCL11 T-cell-attracting chemokines on the frequency and function of DRG- and VM-resident CD4

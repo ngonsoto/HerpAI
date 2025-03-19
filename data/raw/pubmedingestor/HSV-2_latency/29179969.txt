@@ -1,0 +1,4 @@
+Title: [Detection of herpes virus and human enterovirus in pathology samples using low-density arrays].
+
+Abstract:
+Despite the frequency of infections with herpesviridae family, only eight subtypes affect humans (Herpex Simplex Virus types 1 and 2, Varicella Zoster Virus, Epstein-Barr Virus, Citomegalovirus and Human Herpes Virus types 6, 7 and 8). Amongst enteroviruses infections, the most important are Poliovirus, Coxackievirus and Echovirus. Symptoms can vary from mild to severe and early diagnosis is of upmost importance. Nowadays, low-density arrays can detect different types of viruses in a single assay using DNA extracted from biological samples. We analyzed 70 samples of formalin-fixed and paraffin-embedded tissue, searching for viruses (HSV-1, HSV-2, VZV, CMV, EBV, HHV-6, HHV-7 y HHV-8, Poliovirus, Echovirus and Coxsackievirus) using the kit CLART

@@ -1,4 +1,0 @@
-Title: Complete Genome Sequence of Herpes Simplex Virus 2 Strain 333.
-
-Abstract:
-Herpes simplex virus 2, or human herpesvirus 2, is a ubiquitous human pathogen that causes genital ulcerations and establishes latency in sacral root ganglia. We fully sequenced and manually curated the viral genome sequence of herpes simplex virus 2, strain 333 using Pacific Biosciences and Illumina sequencing technologies.

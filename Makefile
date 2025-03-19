@@ -17,4 +17,4 @@ test:
 	python3 -m unittest discover tests
 
 ingest:
-	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/ingestion/orchestrator.py
+	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/ingestion/orchestrators/orchestrator.py

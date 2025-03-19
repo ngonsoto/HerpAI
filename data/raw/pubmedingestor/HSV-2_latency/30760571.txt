@@ -1,0 +1,4 @@
+Title: The US11 Gene of Herpes Simplex Virus 1 Promotes Neuroinvasion and Periocular Replication following Corneal Infection.
+
+Abstract:
+Herpes simplex virus 1 (HSV-1) cycles between phases of latency in sensory neurons and replication in mucosal sites. HSV-1 encodes two key proteins that antagonize the shutdown of host translation, US11 through preventing PKR activation and ICP34.5 through mediating dephosphorylation of the α subunit of eukaryotic initiation factor 2 (eIF2α). While profound attenuation of ICP34.5 deletion mutants has been repeatedly demonstrated, a role for US11 in HSV-1 pathogenesis remains unclear. We therefore generated an HSV-1 strain 17 US11-null virus and examined its properties

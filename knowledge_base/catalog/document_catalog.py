@@ -2,7 +2,7 @@ import os
 import sqlite3
 from datetime import datetime
 
-DB_PATH = "knowledge_base/catalog.db"
+DB_PATH = "data/catalog.db"
 
 class DocumentCatalogManager:
     def __init__(self, db_path=DB_PATH):

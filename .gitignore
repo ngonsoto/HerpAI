@@ -24,3 +24,5 @@ venv
 # OS files
 .DS_Store
 Thumbs.db
+
+#knowledge_base/data/raw/*

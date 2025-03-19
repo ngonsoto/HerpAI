@@ -17,7 +17,7 @@
       "name": "Run DataSources Ingestion Pipeline",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/knowledge_base/ingestion/orchestrator.py",
+      "program": "${workspaceFolder}/knowledge_base/ingestion/orchestrators/orchestrator.py",
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
       "cwd": "${workspaceFolder}",

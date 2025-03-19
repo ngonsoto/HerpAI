@@ -1,4 +1,0 @@
-Title: RUNX Binding Sites Are Enriched in Herpesvirus Genomes, and RUNX1 Overexpression Leads to Herpes Simplex Virus 1 Suppression.
-
-Abstract:
-Herpes simplex virus 1 (HSV-1) and HSV-2 can efficiently establish lifelong, transcriptionally silent latency states in sensory neurons to escape host detection. While host factors have previously been associated with long-range insulators in the viral genome, it is still unknown whether host transcription factors can repress viral genes more proximately to promote latency in dorsal root ganglion (DRG) neurons. Here, we assessed whether RUNX (runt-related transcription factor) transcription factors, which are critical in the development of sensory neurons, could be binding HSV-1 genome directly to suppress viral gene expression and lytic infection. Using previously published transcriptome sequencing data, we confirmed that mouse DRG neurons highly express

@@ -1,4 +1,0 @@
-Title: Understanding global changes of the mouse brain proteome after vaginal infection with HSV-2 using a label-free shotgun approach.
-
-Abstract:
-Herpes simplex virus type 2 (HSV-2) is a common human pathogen that establishes lifelong latency in neurons of the nervous system. The number of severe central nervous system infections caused by the virus has increased recently. However, the pathogenesis of HSV-2 infection in the nervous system is not fully understood. Here, we demonstrated global proteomic changes in the brain tissue in BALB/c mice vaginally infected with HSV-2. Data are available
