@@ -1,6 +1,7 @@
 import os
 from agents.model_router import ModelRouter
 from src.config_loader import AppConfig
+from langchain_community.vectorstores.faiss import FAISS
 
 class BaseAgent:
     """
@@ -12,8 +13,27 @@ class BaseAgent:
         self.context = context or {}
         self.variables = variables or {}
         self.config = AppConfig.load().agents[agent_name]
+        self._load_rag_retriever()
         self.router = ModelRouter(agent_name=agent_name)
         self.raw_output = None
+
+    def _load_rag_retriever(self, base_path="data/rag_indexes"):
+        """
+        Load the appropriate RAG retriever for the agent based on agent_name convention.
+        """
+        retriever_path = os.path.join(base_path, f"{self.agent_name}_rag")
+        if os.path.exists(retriever_path):
+            try:
+                from langchain_community.embeddings import HuggingFaceEmbeddings
+                embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+                self.rag_retriever = FAISS.load_local(retriever_path, embeddings=embedding_model)
+                print(f"[RAG] Loaded retriever from: {retriever_path}")
+            except Exception as e:
+                print(f"[RAG] Failed to load retriever for {self.agent_name}: {e}")
+                self.rag_retriever = None
+        else:
+            print(f"[RAG] No RAG index found at: {retriever_path}")
+            self.rag_retriever = None
 
     def load_prompt(self):
         """
@@ -71,9 +91,16 @@ class BaseAgent:
 
     def run(self):
         """
-        Runs the agent workflow: loads prompt, injects context, queries LLM.
+        Runs the agent workflow: loads prompt, injects RAG context, queries LLM.
         """
         prompt = self.load_prompt()
+
+        # Always retrieve documents from RAG retriever and inject into context
+        if hasattr(self, "rag_retriever"):
+            documents = self.rag_retriever.retrieve(self.variables)
+            rag_context = "\n".join([doc.page_content for doc in documents])
+            self.variables["context"] = rag_context
+
         final_prompt = self.inject_context(prompt)
         self.raw_output = self.router.query(final_prompt)
         return self.raw_output

@@ -9,6 +9,7 @@ class AgentConfig:
     cache: bool = False
     max_tokens: int = 1000
     temperature: float = 0.5
+    tags: list = field(default_factory=list)
 
 @dataclass
 class AppConfig:
@@ -27,7 +28,8 @@ class AppConfig:
                 prompt_version=agent.get("prompt_version", "v1"),
                 cache=agent.get("cache", False),
                 max_tokens=agent.get("max_tokens", 1000),
-                temperature=agent.get("temperature", 0.5)
+                temperature=agent.get("temperature", 0.5),
+                tags=agent.get("tags", [])
             )
             for name, agent in raw_cfg.get("agents", {}).items()
         }

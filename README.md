@@ -7,6 +7,7 @@ See what HerpAI is capable of generating — a comprehensive scientific report b
 📍 **[Project Roadmap](./Roadmap.md)** – See the strategic vision, goals, and ML/LLM multi-agent architecture.
 # HerpAI  
 
+👉 [Meet Our Contributors](./CONTRIBUTORS.md)
 ---
 
 ## ✨ What is HerpAI?
@@ -252,4 +253,4 @@ HerpAI is released under the **MIT License** — feel free to use, extend, or re
  
  > 💡 If you want to contribute or collaborate, please open an issue or send an email to [openbiocure@gmail.com](mailto:openbiocure@gmail.com).
  
- > Let’s end HSV — together.
+ 

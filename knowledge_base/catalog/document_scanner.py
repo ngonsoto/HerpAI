@@ -58,5 +58,31 @@ def ingest_all_documents():
             except Exception as e:
                 logger.error(f"[✗] Failed to ingest {file}: {e}")
 
+def read_document_content(file_path):
+    """
+    Reads and returns the textual content of a document based on its file extension.
+    Supports PDF, CSV, and TXT formats.
+
+    Args:
+        file_path (str): Path to the document file.
+
+    Returns:
+        str: Extracted text content of the document.
+    """
+    ext = file_path.lower().split(".")[-1]
+    try:
+        if ext == "pdf":
+            return parse_pdf(file_path)
+        elif ext == "csv":
+            return parse_csv(file_path)
+        elif ext == "txt":
+            return parse_txt(file_path)
+        else:
+            logger.warning(f"Unsupported file type: {file_path}")
+            return ""
+    except Exception as e:
+        logger.error(f"Failed to read document content from {file_path}: {e}")
+        return ""
+
 if __name__ == "__main__":
     ingest_all_documents()

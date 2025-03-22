@@ -5,11 +5,13 @@ requests==2.31.0
 streamlit==1.32.2
 gradio==4.24.0
 python-dotenv==1.0.1
-requests==2.31.0
 biopython>=1.83
 pdfplumber
 pandas
 python-docx
-pre-commit==3.7.0
-beautifulsoup4
-lxml
+faiss-cpu>=1.7.4
+sentence-transformers
+langchain>=0.1.13
+langchain-community>=0.0.20
+langchainhub
+pre-commit

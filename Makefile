@@ -2,7 +2,7 @@
 
 init:
 	python3 -m venv venv
-	. venv/bin/activate && pip install -r requirements.txt
+	venv/bin/pip install -r requirements.txt
 
 precommit:
 	pip install pre-commit
@@ -19,5 +19,5 @@ test:
 ingest:
 	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/ingestion/orchestrators/orchestrator.py
 
-index:
-	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/catalog/document_scanner.py
+build_indexes:
+	. venv/bin/activate && PYTHONPATH=. python3 knowledge_base/embedding/run_build_indexes.py

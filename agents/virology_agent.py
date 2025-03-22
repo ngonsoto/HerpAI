@@ -6,7 +6,7 @@ from src.config_loader import AgentConfig, AppConfig
 class VirologyAgent(BaseAgent):
     """
     VirologyAgent is responsible for analyzing HSV latency and reactivation patterns
-    using an AI language model routed via ModelRouter.
+    using either standard prompt-based AI or a RAG pipeline with vectorstore retrieval.
     """
 
     def __init__(self, context=None, variables=None):

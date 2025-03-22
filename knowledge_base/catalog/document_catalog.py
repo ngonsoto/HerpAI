@@ -69,3 +69,28 @@ class DocumentCatalogManager:
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(f"Title: {title}\nPath: {path}")
             print(f"[↓] Exported: {output_path}")
+
+    def get_all_documents(self):
+        """
+        Retrieves all documents from the catalog.
+        Returns:
+            list of dict: Each document as a dictionary with all fields.
+        """
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("SELECT id, file_name, file_type, title, path, tags, ingested_at FROM documents_catalog")
+        rows = cursor.fetchall()
+        conn.close()
+
+        documents = []
+        for row in rows:
+            documents.append({
+                "id": row[0],
+                "file_name": row[1],
+                "file_type": row[2],
+                "title": row[3],
+                "path": row[4],
+                "tags": row[5],
+                "ingested_at": row[6],
+            })
+        return documents
