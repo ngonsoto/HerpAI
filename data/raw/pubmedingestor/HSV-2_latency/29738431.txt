@@ -1,4 +1,0 @@
-Title: A VP26-mNeonGreen Capsid Fusion HSV-2 Mutant Reactivates from Viral Latency in the Guinea Pig Genital Model with Normal Kinetics.
-
-Abstract:
-Fluorescent herpes simplex viruses (HSV) are invaluable tools for localizing virus in cells, permitting visualization of capsid trafficking and enhancing neuroanatomical research. Fluorescent viruses can also be used to study virus kinetics and reactivation in vivo. Such studies would be facilitated by fluorescent herpes simplex virus recombinants that exhibit wild-type kinetics of replication and reactivation and that are genetically stable. We engineered an HSV-2 strain expressing the fluorescent mNeonGreen protein as a fusion with the VP26 capsid protein. This virus has normal replication and in vivo recurrence phenotypes, providing an essential improved tool for further study of HSV-2 infection.

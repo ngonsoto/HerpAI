@@ -1,4 +1,0 @@
-Title: The Mutation of the Genes Related to Neurovirulence in HSV-2 Produces an Attenuated Phenotype in Mice.
-
-Abstract:
-HSV-2 (Herpes simplex virus type 2) is a critical viral agent that mainly causes genital herpes and life-long latent infection in the dorsal root ganglia. Gene modification via CRISPR/Cas9 Clustered regularly interspaced short palindromic repeat sequences/CRISPR associated 9) was used here to construct HSV-2 mutant strains through the deletion of fragments of the

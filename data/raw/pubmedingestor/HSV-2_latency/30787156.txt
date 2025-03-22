@@ -1,4 +1,0 @@
-Title: Therapeutic Mucosal Vaccination of Herpes Simplex Virus 2-Infected Guinea Pigs with Ribonucleotide Reductase 2 (RR2) Protein Boosts Antiviral Neutralizing Antibodies and Local Tissue-Resident CD4(+) and CD8(+) T(RM) Cells Associated with Protection against Recurrent Genital Herpes.
-
-Abstract:
-Reactivation of herpes simplex virus 2 (HSV-2) from latency causes viral shedding that develops into recurrent genital lesions. The immune mechanisms of protection against recurrent genital herpes remain to be fully elucidated. In this preclinical study, we investigated the protective therapeutic efficacy, in the guinea pig model of recurrent genital herpes, of subunit vaccine candidates that were based on eight recombinantly expressed HSV-2 envelope and tegument proteins. These viral protein antigens (Ags) were rationally selected for their ability to recall strong CD4
