@@ -5,9 +5,8 @@
 See what HerpAI is capable of generating — a comprehensive scientific report built by chaining AI agents.
 
 📍 **[Project Roadmap](./Roadmap.md)** – See the strategic vision, goals, and ML/LLM multi-agent architecture.
-# HerpAI  
 
-👉 [Meet Our Contributors](./CONTRIBUTORS.md)
+👉 **[Meet Our Contributors](./CONTRIBUTORS.md)** see who is working and supporting the project.
 ---
 
 ## ✨ What is HerpAI?
