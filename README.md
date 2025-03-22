@@ -6,7 +6,8 @@ See what HerpAI is capable of generating — a comprehensive scientific report b
 
 📍 **[Project Roadmap](./Roadmap.md)** – See the strategic vision, goals, and ML/LLM multi-agent architecture.
 
-👉 **[Meet Our Contributors](./CONTRIBUTORS.md)** see who is working and supporting the project.
+👉 **[Meet Our Contributors](./CONTRIBUTORS.md)** - See who is working and supporting the project.
+
 ---
 
 ## ✨ What is HerpAI?
