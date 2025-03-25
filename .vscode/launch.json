@@ -14,27 +14,34 @@
       }
     },
     {
-      "name": "Run DataSources Ingestion Pipeline",
+      "name": "Debug Ingestion Pipeline",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/knowledge_base/ingestion/orchestrators/orchestrator.py",
+      "program": "${workspaceFolder}/ingestion/run_ingestor.py",
+      "args": [
+        "--ingestor",
+        "pubmed",
+        "--query",
+        "HSV2, HSV1, Herpes Simplex Virus 1, Herpes Simplex Virus 2",
+        "--batch-size",
+        "100"
+      ],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
       "env": {
         "PYTHONPATH": "${workspaceFolder}",
-        "SONNET_API_KEY": "dummy_key"
-      }
+        "SONNET_API_KEY": "dummy_key",
+        "LOG_LEVEL": "DEBUG"
+      },
+      "justMyCode": false,
+      "stopOnEntry": true
     },
     {
       "name": "Debug HerpAI Unit Tests",
       "type": "python",
       "request": "launch",
       "module": "unittest",
-      "args": [
-        "discover",
-        "-s",
-        "tests"
-      ],
+      "args": ["discover", "-s", "tests"],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
       "env": {

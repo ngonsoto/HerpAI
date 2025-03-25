@@ -1,0 +1,3 @@
+[console_scripts]
+herpai = herpai.orchestrator.run:main
+herpai-ingest = herpai.knowledge_base.ingestion.run_ingestor:main
