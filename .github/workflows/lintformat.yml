@@ -24,3 +24,6 @@ jobs:
       - name: Run Pylint (code quality check)
         run: |
           pylint --exit-zero --output-format=github $(git ls-files '*.py')
+      - name: Run Unit Tests with unittest
+        run: |
+          python -m unittest discover -s tests -p "tests/*.py"
