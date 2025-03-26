@@ -10,10 +10,12 @@ jobs:
         python-version: ["3.8", "3.9", "3.10"]
     steps:
       - uses: actions/checkout@v4
+      
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      
       - name: Cache Python dependencies
         uses: actions/cache@v3
         with:
@@ -21,14 +23,25 @@ jobs:
           key: ${{ runner.os }}-python-${{ hashFiles('requirements/*.txt') }}
           restore-keys: |
             ${{ runner.os }}-python-
+      
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -e .
           pip install black pylint
+          pip install black pylint
+          npm install -g markdownlint-cli
+
+      - name: Run Markdownlint (Markdown)
+        run: markdownlint "**/*.md"
+
+      - name: Run Yamllint (YAML)
+        run: yamllint .
+
       - name: Run Black (format check)
         run: |
           black --check .
+      
       - name: Run Pylint (code quality check)
         run: |
           pylint --exit-zero --output-format=github $(git ls-files '*.py')
