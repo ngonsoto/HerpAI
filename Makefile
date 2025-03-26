@@ -2,14 +2,14 @@
 
 init:
 	python3 -m venv venv
-	venv/bin/pip install -r requirements.txt
+	venv/bin/pip install -e .
 
 precommit:
 	pip install pre-commit
 	pre-commit install --hook-type commit-msg
 
 run:
-	set -a && . .env && set -a && PYTHONPATH=. python3 orchestrator/runner.py
+	set -a && . ./.env && set -a && PYTHONPATH=. python3 orchestrator/runner.py
 
 test:
 	export SONNET_API_KEY=dummy_key; \
