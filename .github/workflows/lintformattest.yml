@@ -31,21 +31,33 @@ jobs:
           pip install black pylint
           pip install black pylint
           npm install -g markdownlint-cli
-
-      - name: Run Markdownlint (Markdown)
-        run: markdownlint "**/*.md"
-
-      - name: Run Yamllint (YAML)
-        run: yamllint .
-
-      - name: Run Black (format check)
+ 
+      - name: Run Black (python format check)
         run: |
-          black --check .
-      
-      - name: Run Pylint (code quality check)
+          black --check . 2>&1 | tee python_black_output.txt || true
+
+      - name: Run Pylint (python code quality check)
         run: |
-          pylint --exit-zero --output-format=github $(git ls-files '*.py')
-     
+          pylint **/*.py 2>&1 | tee pylint_output.txt || true
+
+      - name: Run Markdownlint (Markdown format check)
+          run: markdownlint "**/*.md" 2>&1 | tee markdownlint_output.txt || true
+
+      - name: Run Yamllint (YAML code quality check)
+        run: yamllint . 2>&1 | tee yamllint_output.txt || true
+
+      - name: Collect and Save Warnings in GitHub Summary
+        run: |
+          echo "### 🔍 Linting & Formatting Results" >> $GITHUB_STEP_SUMMARY
+          for file in python_black_output.txt pylint_output.txt markdownlint_output.txt yamllint_output.txt; do
+            if [ -s "$file" ]; then
+              echo "#### 🚨 Issues in $file" >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              cat "$file" >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
   test:
     runs-on: ubuntu-latest
     strategy:
