@@ -113,7 +113,7 @@ jobs:
           MIN_COVERAGE=60
           ACTUAL_COVERAGE=$( \
             coverage report | grep "TOTAL" | awk '{print $4}' | sed 's/%//' \
-          )
+          ) >> $GITHUB_ENV
           echo "Actual coverage: $ACTUAL_COVERAGE%"
           if [ "$ACTUAL_COVERAGE" -lt "$MIN_COVERAGE" ]; then
             echo \
@@ -128,6 +128,6 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 3ec04b44887858a97bd6a59848907767
           filename: test.json
-          label: Hello
-          message: World
+          label: Coverage
+          message: ${{ env.ACTUAL_COVERAGE }}%
           color: orange
