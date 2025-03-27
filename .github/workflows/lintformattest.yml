@@ -70,7 +70,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
-    needs: lint    # Ensure lint completed sucesfully before running tests
+    # needs: lint    # Ensure lint completed sucesfully before running tests
     steps:
       - uses: actions/checkout@v4
 
@@ -113,7 +113,8 @@ jobs:
           MIN_COVERAGE=60
           ACTUAL_COVERAGE=$( \
             coverage report | grep "TOTAL" | awk '{print $4}' | sed 's/%//' \
-          ) >> $GITHUB_ENV
+          ) 
+          echo "COVERAGE_PERCENT=$ACTUAL_COVERAGE" >> $GITHUB_ENV
           echo "Actual coverage: $ACTUAL_COVERAGE%"
           if [ "$ACTUAL_COVERAGE" -lt "$MIN_COVERAGE" ]; then
             echo \
@@ -129,5 +130,5 @@ jobs:
           gistID: 3ec04b44887858a97bd6a59848907767
           filename: test.json
           label: Coverage
-          message: ${{ env.ACTUAL_COVERAGE }}%
+          message: ${{ env.COVERAGE_PERCENT }}%
           color: orange
