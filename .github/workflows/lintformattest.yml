@@ -29,7 +29,6 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e .
           pip install black pylint
           pip install yamllint
           npm install -g markdownlint-cli
@@ -70,7 +69,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
-    # needs: lint    # Ensure lint completed sucesfully before running tests
+    needs: lint    # Ensure lint completed sucesfully before running tests
     steps:
       - uses: actions/checkout@v4
 
@@ -132,3 +131,6 @@ jobs:
           label: Coverage
           message: ${{ env.COVERAGE_PERCENT }}%
           color: orange
+          valColorRange: ${{ env.COVERAGE_PERCENTAGE }}
+          maxColorRange: 100
+          minColorRange: 0
