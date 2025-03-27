@@ -1,6 +1,6 @@
 ---
 
-name: Lint and Format Check
+name: Lint, format and test
 
 on: [push, pull_request]    # yamllint disable-line rule:truthy
 

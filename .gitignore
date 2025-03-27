@@ -7,19 +7,26 @@ __pycache__/
 
 venv
 
-
 # Environment
 .env
 
 # IDE settings
 .idea/
 
-# Output and build files
-#output/
-*.log
-*.tmp
-*.bak
-*.swp
+# Output directory
+output/*.log
+output/*.tmp
+output/*.bak
+output/*.swp
+output/*.json
+output/*.png
+output/*.md
+
+# Build directory
+build/*
+
+# Dist directory
+dist/*
 
 # OS files
 .DS_Store
