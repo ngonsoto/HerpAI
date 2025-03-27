@@ -1,4 +1,8 @@
-# HerpAI  
+# HerpAI
+
+[![Lint and Test](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml)
+[![Nightly](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml)
+
 *Accelerating the discovery of a functional cure for HSV-1 and HSV-2 using AI.*
 
 ➡️ **[View Final Sample Report (Markdown)](./simulation/v1/final_report.md)**  
@@ -56,40 +60,48 @@ Built under the **OpenBioCure** initiative, HerpAI leverages a **modular multi-a
 Follow these steps to set up and run HerpAI on your local machine.
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/openbiocure/HerpAI.git
 cd HerpAI
 ```
 
 ### 2. Create a virtual environment (optional but recommended)
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 ### 3. Install required Python packages
+
 ```bash
 pip install -e .
 ```
 
 ### 4. Configure environment variables
+
 Create a `.env` file in the project root with your API keys:
 
 ```bash
 touch .env
 ```
+
 Then add the following:
+
 ```
 SONNET_API_KEY=your-sonnet-api-key-here
 OPENAI_API_KEY=your-openai-api-key-here
 ```
 
 ### 5. Run the pipeline
+
 ```bash
 make run
 ```
 
 This will:
+
 - Execute all AI agents in sequence
 - Export individual agent outputs to `/output`
 - Generate a compiled Markdown report at `/output/final_report.md`
@@ -99,6 +111,7 @@ You should see output from the active agent execution printed to your terminal.
 ---
 
 ## 📁 Repository Structure
+
       .
       ├── agents/                # Modular AI agents
       ├── prompts/               # Prompt templates
@@ -153,6 +166,7 @@ This structure enables parallel exploration of both **cure-focused** and **preve
 After executing all agents through the Pipeline Manager, HerpAI automatically exports agent outputs to structured JSON files under the `/output` directory.
 
 Planned enhancements include:
+
 - Markdown/PDF biomedical report compilation
 - Scientific charts and agent summary visualization
 - Scientific charts (e.g., gene impact bar charts, gRNA design matrix) will be integrated into reports
@@ -160,6 +174,7 @@ Planned enhancements include:
 ## 📊 Output Structure
 
 HerpAI saves two layers of output:
+
 1. **Structured Agent Results**: Saved as individual JSON files in the `/output` folder. Example: `virology_output.json`, `drug_design_output.json`, etc.
 2. **Final Report**: A compiled scientific report is generated in Markdown format at `output/final_report.md` and includes findings from all agents.
 
@@ -172,6 +187,7 @@ This dual-output format supports both programmatic consumption and human-readabl
 To help researchers and contributors understand how HerpAI outputs are structured, we’ve included **sample simulation result files** generated from pipeline execution.
 
 You can find them in the following folder:
+
 ```
 ./simulation/v1/
 ```
@@ -179,6 +195,7 @@ You can find them in the following folder:
 Each file corresponds to the structured output of one AI agent. These simulations help illustrate the JSON format, scientific data points, and types of insights HerpAI can generate.
 
 ### Example: TargetPrioritizationAgent Output
+
 ```json
 {
   "Top Targets": [
@@ -206,7 +223,6 @@ Each file corresponds to the structured output of one AI agent. These simulation
 | **Open Access Repositories** | Institutional OA content                       | PDF / Text       | 🔜 Planned    | Target bioinformatics and virology OA repos |
 | **WHO Database**   | Reports and publications related to virology            | PDF              | 🔜 Planned    | Public reports useful for public health context |
 
-
 ## 📄 License
 
 HerpAI is released under the **MIT License** — feel free to use, extend, or remix it for scientific and research purposes.
@@ -231,15 +247,15 @@ HerpAI is released under the **MIT License** — feel free to use, extend, or re
 
 ## 📬 Contact
 
-**Email:** openbiocure@gmail.com  
+**Email:** <openbiocure@gmail.com>  
 **GitHub:** [https://github.com/openbiocure/HerpAI](https://github.com/openbiocure/HerpAI)
 
  ---
- 
- ## 🙋‍♀️ Help Needed — Join the Mission!
- 
+
+## 🙋‍♀️ Help Needed — Join the Mission
+
  We welcome passionate collaborators to help scale HerpAI and push scientific innovation forward. Below are roles where we need your support:
- 
+
  | Role                          | Background/Expertise Needed                                               |
  |-------------------------------|---------------------------------------------------------------------------|
  | Biomedical Research Advisor   | Virology, molecular biology, HSV-specific research                        |
@@ -250,7 +266,6 @@ HerpAI is released under the **MIT License** — feel free to use, extend, or re
  | Scientific Writer             | Assist in report writing, whitepaper contributions, and academic output   |
  | DevOps Contributor            | CI/CD pipelines, deployment scaffolding, automation scripting             |
  | Community Manager             | Facilitate open collaboration, respond to contributors, handle outreach   |
- 
+
  > 💡 If you want to contribute or collaborate, please open an issue or send an email to [openbiocure@gmail.com](mailto:openbiocure@gmail.com).
- 
- 
+
