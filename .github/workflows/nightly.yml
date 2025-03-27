@@ -5,9 +5,8 @@ name: Test nightly
 on:
   # This can be used to automatically publish nightlies at UTC nighttime
   schedule:
-    - cron: '0 2 * * *' # run at 2 AM UTC
-  # This can be used to allow manually triggering nightlies from the web interface
-  workflow_dispatch:
+    #  - cron: '0 2 * * *' # run at 2 AM UTC
+    - cron: '*/5 * * * *' # testing purposes, run every 5 mins
     
 jobs:
   test:
