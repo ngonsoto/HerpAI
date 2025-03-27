@@ -9,34 +9,41 @@ This project is part of the **OpenBioCure** initiative and welcomes contribution
 ## 📌 How to Contribute
 
 ### 1. Fork the Repository
+
 Create a personal copy of the project by forking it to your GitHub account.
 
 ### 2. Clone Your Fork
+
 ```
 git clone https://github.com/<your-username>/HerpAI.git
 cd HerpAI
 ```
 
 ### 3. Create a New Branch
+
 ```
 git checkout -b feature/my-feature-name
 ```
 
 ### 4. Make Your Changes
+
 Please keep your code modular, clean, and well-commented. Add tests where applicable.
 
 ### 5. Commit and Push
+
 ```
 git commit -m "Add new feature/fix"
 git push origin feature/my-feature-name
 ```
 
 ### 6. Submit a Pull Request (PR)
+
 Create a PR against the `main` branch with a clear description of your changes.
 
 ---
 
 ## 📂 Areas You Can Help With
+
 - Writing or improving AI agents (VirologyAgent, DrugDesignAgent, etc.)
 - Prompt engineering and prompt testing
 - Enhancing the orchestrator or API interface
@@ -48,6 +55,7 @@ Create a PR against the `main` branch with a clear description of your changes.
 ---
 
 ## 📋 Code Guidelines
+
 - Use **clear naming conventions** and keep modules self-contained
 - Add **docstrings and comments** to explain logic
 - Structure code in alignment with the project architecture
@@ -76,6 +84,7 @@ Please structure your commits as follows:
 - `ci`: Continuous Integration/Deployment related changes
 
 ✅ Example:
+
 ```
 feat(agent): add CRISPRDesignAgent prompt template
 docs: update README with simulation sample
@@ -86,10 +95,12 @@ docs: update README with simulation sample
 ---
 
 ## 📢 Communication
+
 If you want to discuss your contribution idea or ask questions, feel free to:
+
 - Open a GitHub Issue
 - Start a Discussion (coming soon)
-- Email: **openbiocure@gmail.com**
+- Email: **<openbiocure@gmail.com>**
 
 ---
 
