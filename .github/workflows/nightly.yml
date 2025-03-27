@@ -5,7 +5,7 @@ name: Test nightly
 on:
   workflow_dispatch:  # Allows manual trigger
   schedule:
-    - cron: '0 2 * * *' # run at 2 AM UTC
+    - cron: '0 1 * * *' # run at 1 AM UTC
         
 jobs:
   test:
