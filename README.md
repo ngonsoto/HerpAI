@@ -1,5 +1,7 @@
 # HerpAI
+
 [![Lint and Test](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml) 
+
 *Accelerating the discovery of a functional cure for HSV-1 and HSV-2 using AI.*
 
 ➡️ **[View Final Sample Report (Markdown)](./simulation/v1/final_report.md)**  
