@@ -1,67 +1,20 @@
 ---
 
-name: Lint, format and test
+name: Test nightly
 
-on: [push, pull_request]    # yamllint disable-line rule:truthy
-
+on:
+  # This can be used to automatically publish nightlies at UTC nighttime
+  schedule:
+    - cron: '0 2 * * *' # run at 2 AM UTC
+  # This can be used to allow manually triggering nightlies from the web interface
+  workflow_dispatch:
+    
 jobs:
-  lint:
+    test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install black pylint
-          pip install yamllint
-          npm install -g markdownlint-cli
-
-      - name: Run Black (python format check)
-        run: |
-          black --check . 2>&1 | tee python_black_output.txt || true
-
-      - name: Run Pylint (python code quality check)
-        run: |
-          pylint **/*.py 2>&1 | tee pylint_output.txt || true
-
-      - name: Run Markdownlint (Markdown format check)
-        run: markdownlint "**/*.md" 2>&1 | tee markdownlint_output.txt || true
-
-      - name: Run Yamllint (YAML code quality check)
-        run: yamllint . 2>&1 | tee yamllint_output.txt || true
-
-      - name: Collect and Save Warnings in GitHub Summary
-        run: |
-          echo "### 🔍 Linting & Formatting Results" >> $GITHUB_STEP_SUMMARY
-          for file in \
-            python_black_output.txt \
-            pylint_output.txt \
-            markdownlint_output.txt \
-            yamllint_output.txt; \
-          do
-            if [ -s "$file" ]; then
-              echo "#### 🚨 Issues in $file" >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              cat "$file" >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-            fi
-          done
-
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
-    needs: lint    # Ensure lint completed sucesfully before running tests
     steps:
       - uses: actions/checkout@v4
 
@@ -69,6 +22,14 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-python-${{ hashFiles('requirements/*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-python-
 
       - name: Install dependencies
         run: |
