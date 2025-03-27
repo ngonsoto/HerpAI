@@ -96,7 +96,7 @@ class BaseAgent:
         prompt = self.load_prompt()
 
         # Always retrieve documents from RAG retriever and inject into context
-        if hasattr(self, "rag_retriever"):
+        if self.rag_retriever and hasattr(self, "rag_retriever"):
             documents = self.rag_retriever.retrieve(self.variables)
             rag_context = "\n".join([doc.page_content for doc in documents])
             self.variables["context"] = rag_context
