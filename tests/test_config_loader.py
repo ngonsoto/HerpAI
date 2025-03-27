@@ -4,15 +4,16 @@ from src.config_loader import AppConfig, AgentConfig
 
 class TestConfigLoader(unittest.TestCase):
     SAMPLE_YAML = """
-    default_model_provider: claude
-    agents:
-      virology:
-        model_provider: claude
-        model: claude-3-7-sonnet-latest
-        prompt_version: v1
-        cache: true
-        max_tokens: 2500
-        temperature: 0.4
+    app:
+      default_model_provider: claude
+      agents:
+        virology:
+          model_provider: claude
+          model: claude-3-7-sonnet-latest
+          prompt_version: v1
+          cache: true
+          max_tokens: 2500
+          temperature: 0.4
     """
 
     def test_load_config(self):
