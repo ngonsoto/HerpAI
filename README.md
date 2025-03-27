@@ -2,6 +2,8 @@
 
 [![Lint and Test](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml) 
 ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/ngonsoto/3ec04b44887858a97bd6a59848907767/raw/test.json)
+[![Nightly](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml)
+
 
 *Accelerating the discovery of a functional cure for HSV-1 and HSV-2 using AI.*
 
