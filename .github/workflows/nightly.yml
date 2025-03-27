@@ -3,11 +3,10 @@
 name: Test nightly
 
 on:
-  # This can be used to automatically publish nightlies at UTC nighttime
+  workflow_dispatch:  # Allows manual trigger
   schedule:
-    #  - cron: '0 2 * * *' # run at 2 AM UTC
-    - cron: '*/5 * * * *' # testing purposes, run every 5 mins
-    
+    - cron: '0 2 * * *' # run at 2 AM UTC
+        
 jobs:
   test:
     runs-on: ubuntu-latest
