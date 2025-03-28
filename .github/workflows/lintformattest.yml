@@ -1,6 +1,6 @@
 ---
 
-name: Lint and Format Check
+name: Lint, format and test
 
 on: [push, pull_request]    # yamllint disable-line rule:truthy
 
@@ -18,18 +18,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Cache Python dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-python-${{ hashFiles('requirements/*.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-python-
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e .
           pip install black pylint
           pip install yamllint
           npm install -g markdownlint-cli
@@ -79,14 +70,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Cache Python dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-python-${{ hashFiles('requirements/*.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-python-
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -108,12 +91,13 @@ jobs:
           name: coverage-report-python-${{ matrix.python-version }}
           path: coverage-${{ matrix.python-version }}.xml
 
-      - name: Check Coverage Threshold (Optional)
+      - name: Check Coverage Threshold
         run: |
           MIN_COVERAGE=60
           ACTUAL_COVERAGE=$( \
             coverage report | grep "TOTAL" | awk '{print $4}' | sed 's/%//' \
-          )
+          ) 
+          echo "COVERAGE_PERCENT=$ACTUAL_COVERAGE" >> $GITHUB_ENV
           echo "Actual coverage: $ACTUAL_COVERAGE%"
           if [ "$ACTUAL_COVERAGE" -lt "$MIN_COVERAGE" ]; then
             echo \
