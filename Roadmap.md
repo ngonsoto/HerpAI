@@ -3,7 +3,9 @@
 ---
 
 ## 1. Objective
+
 Establish a modular, scalable, AI-powered discovery pipeline for HSV-2 therapeutic targeting using both:
+
 - LLM-based reasoning agents (prompt-driven)
 - ML-based analytical models (data-driven)
 
@@ -71,6 +73,7 @@ Visual chaining can be supported later via Langflow-compatible task graphing.
 ## 7. Confidence Index / Scoring Layer
 
 Each agent’s output should be:
+
 - Post-processed via a scoring model (mock or trained)
 - Annotated with P-Value or Confidence Score
 - Thresholded before final report generation
@@ -99,3 +102,4 @@ Each agent’s output should be:
 - [ ] Begin dataset gathering scripts  
 - [ ] Scaffold `data/curation/` module for ML dataset cleaning  
 - [ ] Extend RAG system to auto-index new papers  
+
