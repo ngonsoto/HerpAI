@@ -6,6 +6,12 @@ on:
       - main
 
 jobs:
+  pre-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Starting CD Pipeline..."
+
   build-and-push:
     needs: test  # Runs only if CI test passes
     runs-on: ubuntu-latest
