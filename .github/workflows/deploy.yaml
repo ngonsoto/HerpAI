@@ -13,7 +13,6 @@ jobs:
         run: echo "Starting CD Pipeline..."
 
   build-and-push:
-    needs: test  # Runs only if CI test passes
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
