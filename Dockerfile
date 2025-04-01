@@ -16,5 +16,7 @@ RUN pip install --no-cache-dir -e .
 # Expose ports
 EXPOSE 5000 8080
 
-# Run the make script and deploy a webserver to view output files
-CMD ["sh", "-c", "make run & python -m http.server -d /app/output 8080"]
+# Copy and run the start script
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+CMD ["/app/entrypoint.sh"]
