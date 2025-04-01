@@ -6,6 +6,8 @@ on:
     types: [completed]
 
   push:
+    branches:
+      - main
     paths:
       - 'agents/**'
       - 'consumers/**'
@@ -16,6 +18,7 @@ on:
       - 'src/**'
       - 'templates/**'
       - 'tests/**'
+      - 'entrypoint.sh'
       - 'Dockerfile'
       - '.github/workflows/deploy.yaml'
   workflow_dispatch: # Allow manual triggering
