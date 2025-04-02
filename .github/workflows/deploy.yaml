@@ -1,10 +1,13 @@
 name: CD Pipeline
 
 on:
-  workflow_run:
-    workflows: [ci-pipeline-push]
-    branches: [main]
-    types: [completed]
+  workflow_call:
+    inputs:
+      build:
+        description: "Boolean to confirm that we need to rebuild an deploy"
+        default: 'false'
+        required: true
+        type: string
    
   workflow_dispatch: # Allow manual triggering
     inputs:
@@ -14,56 +17,16 @@ on:
         default: 'false'
 
 jobs:
-  # checks if the files/paths were modified
-  changes:
-    runs-on: ubuntu-latest
-    # Set job outputs to values from filter step
-    outputs:
-      docker: ${{ steps.filter.outputs.docker }}
-    steps:
-    - uses: actions/checkout@v4
-    - uses: dorny/paths-filter@v3
-      id: filter
-      with:
-        base: ${{ github.ref }}
-        filters: |
-          docker:
-            - 'agents/**'
-            - 'consumers/**'
-            - 'core/**'
-            - 'orchestrator/**'
-            - 'prompts/**'
-            - 'requirements/**'
-            - 'src/**'
-            - 'templates/**'
-            - 'tests/**'
-            - 'entrypoint.sh'
-            - 'Dockerfile'
-            - '.github/workflows/deploy.yaml'
-  
   validate:
     env:
-      CI_PIPELINE: ${{ github.event.workflow_run.conclusion == 'success' }}
-      DOCKER_FILES: ${{ github.event.workflow_run.jobs.changes.outputs.docker == 'true' }}
+      DOCKER_FILES: ${{ inputs.build }}
     
     runs-on: ubuntu-latest
-    # Set job outputs to values from filter step
-    outputs:
-      docker: ${{ steps.validate.outputs.docker }}
-    steps:
-      - name: Echo CI Pipeline
-        run: echo "CI Pipeline status = $CI_PIPELINE"
-
       - name: Echo docker files
         run: echo "Docker files modified = $DOCKER_FILES"
 
-      - if: ${{ env.CI_PIPELINE == 'true' && env.DOCKER == 'true' }}
-        name: Set output to true
-        run: echo 'true' >> "$GITHUB_OUTPUT"
-      
-
   build-and-push:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.jobs.changes.outputs.docker == 'true' }}
+    if: ${{ inputs.build == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read

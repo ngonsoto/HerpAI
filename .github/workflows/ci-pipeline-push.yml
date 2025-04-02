@@ -145,3 +145,14 @@ jobs:
                is below threshold ($MIN_COVERAGE%)"
             exit 1
           fi
+
+  deploy:
+    needs: [changes,test]
+    if: ${{ needs.changes.outputs.docker == 'true' }}
+    name: Call CD pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/deploy.yaml
+        with:
+          build: ${{ needs.changes.outputs.docker == 'true' }}
+
