@@ -45,6 +45,7 @@ jobs:
               - '**/*.yaml'
 
   lint:
+    name: Lint and format files
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -66,6 +67,7 @@ jobs:
           npm install -g markdownlint-cli
 
       - name: Run Black (python format check)
+        if: ${{ needs.changes.outputs.python == 'true' }}
         run: |
           black --check . 2>&1 | tee python_black_output.txt || true
 
@@ -97,6 +99,7 @@ jobs:
           done
 
   test:
+    name: Test application
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -147,6 +150,7 @@ jobs:
           fi
 
   build-and-push:
+    name: Push docker image to remote repo
     needs: [changes,test]
     if: ${{ needs.changes.outputs.docker == 'true' }}
     runs-on: ubuntu-latest
