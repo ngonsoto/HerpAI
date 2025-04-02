@@ -72,13 +72,16 @@ jobs:
           black --check . 2>&1 | tee python_black_output.txt || true
 
       - name: Run Pylint (python code quality check)
+        if: ${{ needs.changes.outputs.python == 'true' }}
         run: |
           pylint **/*.py 2>&1 | tee pylint_output.txt || true
 
       - name: Run Markdownlint (Markdown format check)
+        if: ${{ needs.changes.outputs.markdown == 'true' }}
         run: markdownlint "**/*.md" 2>&1 | tee markdownlint_output.txt || true
 
       - name: Run Yamllint (YAML code quality check)
+        if: ${{ needs.changes.outputs.yaml == 'true' }}
         run: yamllint . 2>&1 | tee yamllint_output.txt || true
 
       - name: Collect and Save Warnings in GitHub Summary
