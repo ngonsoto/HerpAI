@@ -15,6 +15,34 @@ on:
 
 jobs:
   # checks if the files/paths were modified
+  changes:
+    runs-on: ubuntu-latest
+    # Set job outputs to values from filter step
+    outputs:
+      docker: ${{ steps.filter.outputs.docker }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Get Short Commit SHA
+      run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        base: ${{ env.GIT_SHA }}
+        filters: |
+          docker:
+            - 'agents/**'
+            - 'consumers/**'
+            - 'core/**'
+            - 'orchestrator/**'
+            - 'prompts/**'
+            - 'requirements/**'
+            - 'src/**'
+            - 'templates/**'
+            - 'tests/**'
+            - 'entrypoint.sh'
+            - 'Dockerfile'
+            - '.github/workflows/deploy.yaml'
+  
   validate:
     env:
       CI_PIPELINE: ${{ github.event.workflow_run.conclusion == 'success' }}
