@@ -2,14 +2,19 @@ name: CD Pipeline
 
 on:
   workflow_run:
-    workflows: [Lint format test]
+    workflows: [ci-pipeline-push]
     types: [completed]
    
   workflow_dispatch: # Allow manual triggering
+    inputs:
+      version:
+        description: Version to release (optional)
+        required: false
+        default: 'false'
 
 jobs:
   # checks if the files/paths were modified
-  check-changes:
+  changes:
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
     outputs:
@@ -34,8 +39,34 @@ jobs:
             - 'Dockerfile'
             - '.github/workflows/deploy.yaml'
 
+  # checks if the files/paths were modified
+  validate:
+    env:
+      CI_PIPELINE: ${{ github.event.workflow_run.conclusion == 'success' && 'true || 'false' }}
+      DOCKER_FILES: ${{ needs.changes.outputs.docker == 'true' == 'success' && 'true || 'false' }}
+      MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' == 'success' && 'true || 'false' }}
+    
+    runs-on: ubuntu-latest
+    # Set job outputs to values from filter step
+    outputs:
+      docker: ${{ steps.validate.outputs.docker }}
+    steps:
+      - name: Echo CI Pipeline
+        run: echo "CI Pipeline status = $CI_PIPELINE"
+
+      - name: Echo docker files
+        run: echo "Docker files modified = $DOCKER_FILES"
+
+      - name: Echo main branch
+        run: echo "Is main branch = $MAIN_BRANCH"
+        
+      - if: ${{ CI_PIPELINE == 'true' && DOCKER == 'true' && MAIN_BRANCH == 'true' }}
+        name: Set output to true
+        run: echo 'true' >> "$GITHUB_OUTPUT"
+      
+
   build-and-push:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.changes.outputs.docker == 'true' && github.ref == 'refs/heads/main'}}
+    if: ${{ needs.validate.outputs.docker == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -45,11 +76,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Log in to GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
       - name: Get Short Commit SHA
         run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build Docker image
         run: |
@@ -60,7 +91,10 @@ jobs:
           docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:latest
           docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:${{ env.GIT_SHA }}
 
+      - if: ${{ github.event.inputs.version }}
+
       - name: Push Docker image to GHCR
         run: |
           docker push ghcr.io/${{ github.repository_owner }}/herpai-app:latest
           docker push ghcr.io/${{ github.repository_owner }}/herpai-app:${{ env.GIT_SHA }}
+
