@@ -1,0 +1,2 @@
+this file is here just to test the cd pipeline.
+this a push to main branch but not on an app file, so it shouldnt build a docker image.
