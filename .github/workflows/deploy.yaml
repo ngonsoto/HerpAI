@@ -3,6 +3,7 @@ name: CD Pipeline
 on:
   workflow_run:
     workflows: [ci-pipeline-push]
+    branches: [main]
     types: [completed]
    
   workflow_dispatch: # Allow manual triggering
@@ -14,38 +15,10 @@ on:
 
 jobs:
   # checks if the files/paths were modified
-  changes:
-    runs-on: ubuntu-latest
-    # Set job outputs to values from filter step
-    outputs:
-      docker: ${{ steps.filter.outputs.docker }}
-    steps:
-    - uses: actions/checkout@v4
-    - uses: dorny/paths-filter@v3
-      id: filter
-      with:
-        base: main
-        filters: |
-          docker:
-            - 'agents/**'
-            - 'consumers/**'
-            - 'core/**'
-            - 'orchestrator/**'
-            - 'prompts/**'
-            - 'requirements/**'
-            - 'src/**'
-            - 'templates/**'
-            - 'tests/**'
-            - 'entrypoint.sh'
-            - 'Dockerfile'
-            - '.github/workflows/deploy.yaml'
-
-  # checks if the files/paths were modified
   validate:
     env:
       CI_PIPELINE: ${{ github.event.workflow_run.conclusion == 'success' }}
-      DOCKER_FILES: ${{ needs.changes.outputs.docker == 'true' }}
-      MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' }} # ading comment to check
+      DOCKER_FILES: ${{ github.event.workflow_run.jobs.changes.outputs.docker == 'true' }}
     
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
@@ -58,16 +31,13 @@ jobs:
       - name: Echo docker files
         run: echo "Docker files modified = $DOCKER_FILES"
 
-      - name: Echo main branch
-        run: echo "Is main branch = $MAIN_BRANCH"
-        
-      - if: ${{ env.CI_PIPELINE == 'true' && env.DOCKER == 'true' && env.MAIN_BRANCH == 'true' }}
+      - if: ${{ env.CI_PIPELINE == 'true' && env.DOCKER == 'true' }}
         name: Set output to true
         run: echo 'true' >> "$GITHUB_OUTPUT"
       
 
   build-and-push:
-    if: ${{ needs.validate.outputs.docker == 'true' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.jobs.changes.outputs.docker == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read

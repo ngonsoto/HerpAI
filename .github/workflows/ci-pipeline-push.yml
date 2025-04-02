@@ -5,11 +5,51 @@ name: ci-pipeline-push
 on: [push]    # yamllint disable-line rule:truthy
 
 jobs:
+  changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+
+    outputs: 
+      docker: ${{ steps.filter.outputs.docker }}
+      python: ${{ steps.filter.outputs.python }}
+      markdown: ${{ steps.filter.outputs.markdown }}
+      yaml: ${{ steps.filter.outputs.yaml }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            docker:
+              - 'agents/**'
+              - 'consumers/**'
+              - 'core/**'
+              - 'orchestrator/**'
+              - 'prompts/**'
+              - 'requirements/**'
+              - 'src/**'
+              - 'templates/**'
+              - 'tests/**'
+              - 'entrypoint.sh'
+              - 'Dockerfile'
+              - '.github/workflows/deploy.yaml'
+            python:
+              - '**/*.py'
+            markdown:
+              - '**/*.md'
+            yaml:
+              - '**/*.yaml'
+
   lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
+    needs: changes
     steps:
       - uses: actions/checkout@v4
 
@@ -25,18 +65,22 @@ jobs:
           pip install yamllint
           npm install -g markdownlint-cli
 
-      - name: Run Black (python format check)
+      - if: {{ needs.changes.outputs.python == 'true' }}
+        name: Run Black (python format check)
         run: |
           black --check . 2>&1 | tee python_black_output.txt || true
 
-      - name: Run Pylint (python code quality check)
+      - if: {{ needs.changes.outputs.python == 'true' }}
+        name: Run Pylint (python code quality check)
         run: |
           pylint **/*.py 2>&1 | tee pylint_output.txt || true
 
-      - name: Run Markdownlint (Markdown format check)
+      - if: {{ needs.changes.outputs.markdown == 'true' }}
+        name: Run Markdownlint (Markdown format check)
         run: markdownlint "**/*.md" 2>&1 | tee markdownlint_output.txt || true
 
-      - name: Run Yamllint (YAML code quality check)
+      - if: {{ needs.changes.outputs.yaml == 'true' }}
+        name: Run Yamllint (YAML code quality check)
         run: yamllint . 2>&1 | tee yamllint_output.txt || true
 
       - name: Collect and Save Warnings in GitHub Summary
