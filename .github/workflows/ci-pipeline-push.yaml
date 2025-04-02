@@ -181,6 +181,7 @@ jobs:
       contents: read
       packages: write  # Required for pushing to GHCR
 
+    steps:
       - name: Get Short Commit SHA
         run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
