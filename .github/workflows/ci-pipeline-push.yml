@@ -46,11 +46,12 @@ jobs:
 
   lint:
     name: Lint and format files
+    needs: changes
+    if: ${{ needs.changes.outputs.python == 'true' || needs.changes.outputs.markdown == 'true' || needs.changes.outputs.yaml == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
-    needs: changes
     steps:
       - uses: actions/checkout@v4
 
