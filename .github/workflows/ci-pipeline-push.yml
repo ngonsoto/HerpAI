@@ -36,7 +36,7 @@ jobs:
               - 'tests/**'
               - 'entrypoint.sh'
               - 'Dockerfile'
-              - '.github/workflows/deploy.yaml'
+              - '.github/workflows/ci-pipeline-push.yaml'
             python:
               - '**/*.py'
             markdown:
@@ -146,13 +146,35 @@ jobs:
             exit 1
           fi
 
-  deploy:
+  build-and-push:
     needs: [changes,test]
     if: ${{ needs.changes.outputs.docker == 'true' }}
-    name: Call CD pipeline
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write  # Required for pushing to GHCR
+
     steps:
-      - uses: ./.github/workflows/deploy.yaml
-        with:
-          build: ${{ needs.changes.outputs.docker == 'true' }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Short Commit SHA
+        run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository_owner }}/herpai-app .
+
+      - name: Add Tags to the Image
+        run: |
+          docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:latest
+          docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:${{ env.GIT_SHA }}
+
+      - name: Push Docker image to GHCR
+        run: |
+          docker push ghcr.io/${{ github.repository_owner }}/herpai-app:latest
+          docker push ghcr.io/${{ github.repository_owner }}/herpai-app:${{ env.GIT_SHA }}
 
