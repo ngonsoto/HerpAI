@@ -155,7 +155,7 @@ jobs:
   build-and-push-container:
     name: Build and push docker image
     needs: changes
-    if: ${{ needs.changes.outputs.docker == 'true' }}
+    if: ${{ needs.changes.outputs.docker == 'true' && github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
