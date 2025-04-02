@@ -4,35 +4,38 @@ on:
   workflow_run:
     workflows: [Lint format test]
     types: [completed]
-
-  push:
-    branches:
-      - main
-    paths:
-      - 'agents/**'
-      - 'consumers/**'
-      - 'core/**'
-      - 'orchestrator/**'
-      - 'prompts/**'
-      - 'requirements/**'
-      - 'src/**'
-      - 'templates/**'
-      - 'tests/**'
-      - 'entrypoint.sh'
-      - 'Dockerfile'
-      - '.github/workflows/deploy.yaml'
    
   workflow_dispatch: # Allow manual triggering
 
 jobs:
-  pre-check:
+  # checks if the files/paths were modified
+  check-changes:
     runs-on: ubuntu-latest
+    # Set job outputs to values from filter step
+    outputs:
+      docker: ${{ steps.filter.outputs.docker }}
     steps:
-      - name: Echo message
-        run: echo "Starting CD Pipeline..."
+    - uses: actions/checkout@v4
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          docker:
+            - 'agents/**'
+            - 'consumers/**'
+            - 'core/**'
+            - 'orchestrator/**'
+            - 'prompts/**'
+            - 'requirements/**'
+            - 'src/**'
+            - 'templates/**'
+            - 'tests/**'
+            - 'entrypoint.sh'
+            - 'Dockerfile'
+            - '.github/workflows/deploy.yaml'
 
   build-and-push:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.changes.outputs.docker == 'true' && github.ref == 'refs/heads/main'}}
     runs-on: ubuntu-latest
     permissions:
       contents: read
