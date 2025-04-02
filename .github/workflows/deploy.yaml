@@ -91,8 +91,6 @@ jobs:
           docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:latest
           docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:${{ env.GIT_SHA }}
 
-      - if: ${{ github.event.inputs.version }}
-
       - name: Push Docker image to GHCR
         run: |
           docker push ghcr.io/${{ github.repository_owner }}/herpai-app:latest
