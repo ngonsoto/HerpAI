@@ -60,7 +60,7 @@ jobs:
       - name: Echo main branch
         run: echo "Is main branch = $MAIN_BRANCH"
         
-      - if: ${{ $CI_PIPELINE == 'true' && DOCKER == 'true' && MAIN_BRANCH == 'true' }}
+      - if: ${{ env.CI_PIPELINE == 'true' && env.DOCKER == 'true' && env.MAIN_BRANCH == 'true' }}
         name: Set output to true
         run: echo 'true' >> "$GITHUB_OUTPUT"
       
