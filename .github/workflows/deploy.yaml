@@ -44,7 +44,7 @@ jobs:
     env:
       CI_PIPELINE: ${{ github.event.workflow_run.conclusion == 'success' }}
       DOCKER_FILES: ${{ needs.changes.outputs.docker == 'true' }}
-      MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' }}
+      MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' }} # ading comment to check
     
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
