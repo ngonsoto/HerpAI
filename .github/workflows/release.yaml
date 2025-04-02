@@ -7,7 +7,8 @@ on:
     inputs:
       version:
         description: Version to release (use semantic versioning)
-        required: true
+        required: false
+        default: 'latest'
 
 jobs:
   build-and-push-container:
@@ -48,4 +49,4 @@ jobs:
         run: |
           docker push ghcr.io/${{ github.repository_owner }}/herpai-app:latest
           docker push ghcr.io/${{ github.repository_owner }}/herpai-app:${{ env.GIT_SHA }}
-          docker push ghcr.io/${{ github.repository_owner }}/herpai-app:${{ inputs.versiond }}
+          docker push ghcr.io/${{ github.repository_owner }}/herpai-app:${{ inputs.version }}
