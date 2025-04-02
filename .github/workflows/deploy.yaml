@@ -42,9 +42,9 @@ jobs:
   # checks if the files/paths were modified
   validate:
     env:
-      CI_PIPELINE: ${{ github.event.workflow_run.conclusion == 'success' && 'true || 'false' }}
-      DOCKER_FILES: ${{ needs.changes.outputs.docker == 'true' == 'success' && 'true || 'false' }}
-      MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' == 'success' && 'true || 'false' }}
+      CI_PIPELINE: ${{ github.event.workflow_run.conclusion == 'success' && 'true' || 'false' }}
+      DOCKER_FILES: ${{ needs.changes.outputs.docker == 'true' == 'success' && 'true' || 'false' }}
+      MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' == 'success' && 'true' || 'false' }}
     
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
