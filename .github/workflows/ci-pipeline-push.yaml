@@ -152,26 +152,28 @@ jobs:
             exit 1
           fi
 
-  build-container:
-    name: Build docker image
+  build-and-push-container:
+    name: Build and push docker image
     needs: changes
     if: ${{ needs.changes.outputs.docker == 'true' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write  # Required for pushing to GHCR
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
  
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          tags: herpai-app:latest
-          outputs: type=docker,dest=/tmp/herpai.tar
+      - name: Get Short Commit SHA
+        run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository_owner }}/herpai-app .
 
       - name: Run container smoke test
         run: |
@@ -179,40 +181,10 @@ jobs:
           sleep 5
           docker logs herpai-test
           docker rm -f herpai-test
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: herpai
-          path: /tmp/herpai.tar
-
-  push-container:
-    name: Push docker image to remote repo
-    needs: build-container
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write  # Required for pushing to GHCR
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: herpai
-          path: /tmp
-
-      - name: Load Docker image
-        run: |
-          docker load --input /tmp/herpai.tar
-
-      - name: Get Short Commit SHA
-        run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-
-      - name: Log in to GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
+      
       - name: Add Tags to the Image
         run: |
+          docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:latest
           docker tag ghcr.io/${{ github.repository_owner }}/herpai-app ghcr.io/${{ github.repository_owner }}/herpai-app:${{ env.GIT_SHA }}
 
       - name: Push Docker image to GHCR
