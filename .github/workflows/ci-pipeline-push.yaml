@@ -152,28 +152,40 @@ jobs:
             exit 1
           fi
 
-  build-and-push:
-    name: Push docker image to remote repo
-    needs: [changes,test]
+  build-container:
+    name: Build docker image
+    needs: changes
     if: ${{ needs.changes.outputs.docker == 'true' }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write  # Required for pushing to GHCR
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+ 
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository_owner }}/herpai-app .
+
+      - name: Run container smoke test
+        run: |
+          docker run -d --name herpai-test ghcr.io/${{ github.repository_owner }}/herpai-app
+          sleep 5
+          docker logs herpai-test
+          docker rm -f herpai-test
+
+  push-container:
+    name: Push docker image to remote repo
+    needs: build-container
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write  # Required for pushing to GHCR
 
       - name: Get Short Commit SHA
         run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: Log in to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-      - name: Build Docker image
-        run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/herpai-app .
 
       - name: Add Tags to the Image
         run: |
