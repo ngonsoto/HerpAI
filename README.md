@@ -1,7 +1,7 @@
 # HerpAI
 
-[![Lint and Test](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml)
-[![Nightly](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml)
+[![Latest build](https://github.com/openbiocure/HerpAI/actions/workflows/ci-pipeline-push.yaml/badge.svg)](https://github.com/openbiocure/HerpAI/actions/workflows/ci-pipeline-push.yaml)
+[![Nightly](https://github.com/openbiocure/HerpAI/actions/workflows/nightly.yaml/badge.svg)](https://github.com/openbiocure/HerpAI/actions/workflows/nightly.yaml)
 
 *Accelerating the discovery of a functional cure for HSV-1 and HSV-2 using AI.*
 
@@ -57,29 +57,31 @@ Built under the **OpenBioCure** initiative, HerpAI leverages a **modular multi-a
 
 ## 🚀 Getting Started
 
+### Local development
+
 Follow these steps to set up and run HerpAI on your local machine.
 
-### 1. Clone the repository
+#### 1. Clone the repository
 
 ```bash
 git clone https://github.com/openbiocure/HerpAI.git
 cd HerpAI
 ```
 
-### 2. Create a virtual environment (optional but recommended)
+#### 2. Create a virtual environment (optional but recommended)
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install required Python packages
+#### 3. Install required Python packages
 
 ```bash
 pip install -e .
 ```
 
-### 4. Configure environment variables
+#### 4. Configure environment variables
 
 Create a `.env` file in the project root with your API keys:
 
@@ -94,7 +96,7 @@ SONNET_API_KEY=your-sonnet-api-key-here
 OPENAI_API_KEY=your-openai-api-key-here
 ```
 
-### 5. Run the pipeline
+#### 5. Run the pipeline
 
 ```bash
 make run
@@ -107,6 +109,42 @@ This will:
 - Generate a compiled Markdown report at `/output/final_report.md`
 
 You should see output from the active agent execution printed to your terminal.
+
+### 🐳 Docker container
+
+Follow these steps to run HerpAI inside a docker container.
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/openbiocure/HerpAI.git
+cd HerpAI
+```
+
+#### 2. Build the docker image
+
+```bash
+docker build -t herpai-app .
+```
+
+#### 3. Configure environment variables
+
+Create a `.env` file in the project root with your API keys:
+
+```bash
+echo "SONNET_API_KEY={your-sonnet-api-key-here}" > .env
+echo "OPENAI_API_KEY={your-openai-api-key-here}" >> .env
+```
+
+#### 4. Run the docker container
+
+Using the built image and the environment variables, run the container:
+
+```bash
+sudo docker run -it --env-file .env -p 5000:8080 -v /tmp:/app/output herpai-app
+```
+
+The application will be accesible at `http://localhost:5000`. The output files will be saved to `/tmp` directory. Change the port and/or directory mounted as required.
 
 ---
 
