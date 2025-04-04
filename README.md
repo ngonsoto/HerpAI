@@ -3,6 +3,8 @@
 [![Lint and Test](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml)
 [![Nightly](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml)
 
+Socials: ![](https://dcbadge.limes.pink/api/server/https://discord.gg/72dWs7J9?style=flat)
+
 *Accelerating the discovery of a functional cure for HSV-1 and HSV-2 using AI.*
 
 ➡️ **[View Final Sample Report (Markdown)](./simulation/v1/final_report.md)**  
