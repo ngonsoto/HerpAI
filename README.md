@@ -2,6 +2,7 @@
 
 [![Lint and Test](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/lintformattest.yml)
 [![Nightly](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml/badge.svg)](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml)
+![](https://ghcr-badge.egpl.dev/ngonsoto/herpai-app/latest_tag?trim=major&label=docker%20build)
 
 Socials: ![](https://dcbadge.limes.pink/api/server/https://discord.gg/72dWs7J9?style=flat)
 
