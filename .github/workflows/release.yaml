@@ -1,6 +1,6 @@
 ---
 
-name: ci-pipeline-push
+name: Release new container version
 
 on:
   workflow_dispatch: # Allow manual triggering
