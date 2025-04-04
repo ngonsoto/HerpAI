@@ -2,8 +2,8 @@
 
 [![CI Push](https://img.shields.io/github/actions/workflow/status/ngonsoto/HerpAI/ci-pipeline-push.yaml?logo=github)](https://github.com/ngonsoto/HerpAI/actions/workflows/ci-pipeline-push.yaml)
 [![Nightly](https://img.shields.io/github/actions/workflow/status/ngonsoto/HerpAI/nightly.yml?logo=github&label=nightly)](https://github.com/ngonsoto/HerpAI/actions/workflows/nightly.yml)
-[![](https://ghcr-badge.egpl.dev/ngonsoto/herpai-app/latest_tag?trim=major&label=docker%20build&color=dodgerblue)](https://github.com/ngonsoto/HerpAI/pkgs/container/herpai-app)
-[![Static Badge](https://img.shields.io/badge/Discord-HerpAI-gray?logo=discord&logoColor=white&logoSize=auto&labelColor=%235865F2)](https://discord.gg/72dWs7J9?style=flat)
+[![](https://ghcr-badge.egpl.dev/ngonsoto/herpai-app/latest_tag?trim=major&label=docker%20image&color=dodgerblue)](https://github.com/ngonsoto/HerpAI/pkgs/container/herpai-app)
+[![Static Badge](https://img.shields.io/badge/Discord-HerpAI-gray?logo=discord&logoColor=white&logoSize=auto&labelColor=%235865F2)](https://discord.gg/72dWs7J9)
 
 *Accelerating the discovery of a functional cure for HSV-1 and HSV-2 using AI.*
 
